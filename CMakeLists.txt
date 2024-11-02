@@ -3,4 +3,10 @@ project(projetinfo1 C)
 
 set(CMAKE_C_STANDARD 23)
 
-add_executable(projetinfo1 main.c)
+add_executable(projetinfo1 main.c
+        menu.c
+        plateau.cpp
+        mouvementpions.cpp
+        mouvementpions.c
+        mouvementbarriere.c
+        header.h)

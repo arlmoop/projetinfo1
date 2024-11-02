@@ -82,19 +82,67 @@ CMakeFiles/projetinfo1.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/projetinfo1.dir/main.c.s"
 	C:\Users\aurel\OneDrive\Bureau\ECE\CLION2~1.1\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\aurel\CLionProjects\projetinfo1\main.c -o CMakeFiles\projetinfo1.dir\main.c.s
 
+CMakeFiles/projetinfo1.dir/menu.c.obj: CMakeFiles/projetinfo1.dir/flags.make
+CMakeFiles/projetinfo1.dir/menu.c.obj: C:/Users/aurel/CLionProjects/projetinfo1/menu.c
+CMakeFiles/projetinfo1.dir/menu.c.obj: CMakeFiles/projetinfo1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\aurel\CLionProjects\projetinfo1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/projetinfo1.dir/menu.c.obj"
+	C:\Users\aurel\OneDrive\Bureau\ECE\CLION2~1.1\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/projetinfo1.dir/menu.c.obj -MF CMakeFiles\projetinfo1.dir\menu.c.obj.d -o CMakeFiles\projetinfo1.dir\menu.c.obj -c C:\Users\aurel\CLionProjects\projetinfo1\menu.c
+
+CMakeFiles/projetinfo1.dir/menu.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/projetinfo1.dir/menu.c.i"
+	C:\Users\aurel\OneDrive\Bureau\ECE\CLION2~1.1\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\aurel\CLionProjects\projetinfo1\menu.c > CMakeFiles\projetinfo1.dir\menu.c.i
+
+CMakeFiles/projetinfo1.dir/menu.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/projetinfo1.dir/menu.c.s"
+	C:\Users\aurel\OneDrive\Bureau\ECE\CLION2~1.1\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\aurel\CLionProjects\projetinfo1\menu.c -o CMakeFiles\projetinfo1.dir\menu.c.s
+
+CMakeFiles/projetinfo1.dir/mouvementpions.c.obj: CMakeFiles/projetinfo1.dir/flags.make
+CMakeFiles/projetinfo1.dir/mouvementpions.c.obj: C:/Users/aurel/CLionProjects/projetinfo1/mouvementpions.c
+CMakeFiles/projetinfo1.dir/mouvementpions.c.obj: CMakeFiles/projetinfo1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\aurel\CLionProjects\projetinfo1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/projetinfo1.dir/mouvementpions.c.obj"
+	C:\Users\aurel\OneDrive\Bureau\ECE\CLION2~1.1\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/projetinfo1.dir/mouvementpions.c.obj -MF CMakeFiles\projetinfo1.dir\mouvementpions.c.obj.d -o CMakeFiles\projetinfo1.dir\mouvementpions.c.obj -c C:\Users\aurel\CLionProjects\projetinfo1\mouvementpions.c
+
+CMakeFiles/projetinfo1.dir/mouvementpions.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/projetinfo1.dir/mouvementpions.c.i"
+	C:\Users\aurel\OneDrive\Bureau\ECE\CLION2~1.1\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\aurel\CLionProjects\projetinfo1\mouvementpions.c > CMakeFiles\projetinfo1.dir\mouvementpions.c.i
+
+CMakeFiles/projetinfo1.dir/mouvementpions.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/projetinfo1.dir/mouvementpions.c.s"
+	C:\Users\aurel\OneDrive\Bureau\ECE\CLION2~1.1\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\aurel\CLionProjects\projetinfo1\mouvementpions.c -o CMakeFiles\projetinfo1.dir\mouvementpions.c.s
+
+CMakeFiles/projetinfo1.dir/mouvementbarriere.c.obj: CMakeFiles/projetinfo1.dir/flags.make
+CMakeFiles/projetinfo1.dir/mouvementbarriere.c.obj: C:/Users/aurel/CLionProjects/projetinfo1/mouvementbarriere.c
+CMakeFiles/projetinfo1.dir/mouvementbarriere.c.obj: CMakeFiles/projetinfo1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\aurel\CLionProjects\projetinfo1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/projetinfo1.dir/mouvementbarriere.c.obj"
+	C:\Users\aurel\OneDrive\Bureau\ECE\CLION2~1.1\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/projetinfo1.dir/mouvementbarriere.c.obj -MF CMakeFiles\projetinfo1.dir\mouvementbarriere.c.obj.d -o CMakeFiles\projetinfo1.dir\mouvementbarriere.c.obj -c C:\Users\aurel\CLionProjects\projetinfo1\mouvementbarriere.c
+
+CMakeFiles/projetinfo1.dir/mouvementbarriere.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/projetinfo1.dir/mouvementbarriere.c.i"
+	C:\Users\aurel\OneDrive\Bureau\ECE\CLION2~1.1\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\aurel\CLionProjects\projetinfo1\mouvementbarriere.c > CMakeFiles\projetinfo1.dir\mouvementbarriere.c.i
+
+CMakeFiles/projetinfo1.dir/mouvementbarriere.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/projetinfo1.dir/mouvementbarriere.c.s"
+	C:\Users\aurel\OneDrive\Bureau\ECE\CLION2~1.1\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\aurel\CLionProjects\projetinfo1\mouvementbarriere.c -o CMakeFiles\projetinfo1.dir\mouvementbarriere.c.s
+
 # Object files for target projetinfo1
 projetinfo1_OBJECTS = \
-"CMakeFiles/projetinfo1.dir/main.c.obj"
+"CMakeFiles/projetinfo1.dir/main.c.obj" \
+"CMakeFiles/projetinfo1.dir/menu.c.obj" \
+"CMakeFiles/projetinfo1.dir/mouvementpions.c.obj" \
+"CMakeFiles/projetinfo1.dir/mouvementbarriere.c.obj"
 
 # External object files for target projetinfo1
 projetinfo1_EXTERNAL_OBJECTS =
 
 projetinfo1.exe: CMakeFiles/projetinfo1.dir/main.c.obj
+projetinfo1.exe: CMakeFiles/projetinfo1.dir/menu.c.obj
+projetinfo1.exe: CMakeFiles/projetinfo1.dir/mouvementpions.c.obj
+projetinfo1.exe: CMakeFiles/projetinfo1.dir/mouvementbarriere.c.obj
 projetinfo1.exe: CMakeFiles/projetinfo1.dir/build.make
 projetinfo1.exe: CMakeFiles/projetinfo1.dir/linkLibs.rsp
 projetinfo1.exe: CMakeFiles/projetinfo1.dir/objects1.rsp
 projetinfo1.exe: CMakeFiles/projetinfo1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\aurel\CLionProjects\projetinfo1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable projetinfo1.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\aurel\CLionProjects\projetinfo1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable projetinfo1.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\projetinfo1.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

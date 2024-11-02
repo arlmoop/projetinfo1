@@ -152,6 +152,78 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projetinfo1.dir\build.make CMakeFiles/projetinfo1.dir/main.c.s
 .PHONY : main.c.s
 
+menu.obj: menu.c.obj
+.PHONY : menu.obj
+
+# target to build an object file
+menu.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projetinfo1.dir\build.make CMakeFiles/projetinfo1.dir/menu.c.obj
+.PHONY : menu.c.obj
+
+menu.i: menu.c.i
+.PHONY : menu.i
+
+# target to preprocess a source file
+menu.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projetinfo1.dir\build.make CMakeFiles/projetinfo1.dir/menu.c.i
+.PHONY : menu.c.i
+
+menu.s: menu.c.s
+.PHONY : menu.s
+
+# target to generate assembly for a file
+menu.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projetinfo1.dir\build.make CMakeFiles/projetinfo1.dir/menu.c.s
+.PHONY : menu.c.s
+
+mouvementbarriere.obj: mouvementbarriere.c.obj
+.PHONY : mouvementbarriere.obj
+
+# target to build an object file
+mouvementbarriere.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projetinfo1.dir\build.make CMakeFiles/projetinfo1.dir/mouvementbarriere.c.obj
+.PHONY : mouvementbarriere.c.obj
+
+mouvementbarriere.i: mouvementbarriere.c.i
+.PHONY : mouvementbarriere.i
+
+# target to preprocess a source file
+mouvementbarriere.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projetinfo1.dir\build.make CMakeFiles/projetinfo1.dir/mouvementbarriere.c.i
+.PHONY : mouvementbarriere.c.i
+
+mouvementbarriere.s: mouvementbarriere.c.s
+.PHONY : mouvementbarriere.s
+
+# target to generate assembly for a file
+mouvementbarriere.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projetinfo1.dir\build.make CMakeFiles/projetinfo1.dir/mouvementbarriere.c.s
+.PHONY : mouvementbarriere.c.s
+
+mouvementpions.obj: mouvementpions.c.obj
+.PHONY : mouvementpions.obj
+
+# target to build an object file
+mouvementpions.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projetinfo1.dir\build.make CMakeFiles/projetinfo1.dir/mouvementpions.c.obj
+.PHONY : mouvementpions.c.obj
+
+mouvementpions.i: mouvementpions.c.i
+.PHONY : mouvementpions.i
+
+# target to preprocess a source file
+mouvementpions.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projetinfo1.dir\build.make CMakeFiles/projetinfo1.dir/mouvementpions.c.i
+.PHONY : mouvementpions.c.i
+
+mouvementpions.s: mouvementpions.c.s
+.PHONY : mouvementpions.s
+
+# target to generate assembly for a file
+mouvementpions.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projetinfo1.dir\build.make CMakeFiles/projetinfo1.dir/mouvementpions.c.s
+.PHONY : mouvementpions.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -164,6 +236,15 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... menu.obj
+	@echo ... menu.i
+	@echo ... menu.s
+	@echo ... mouvementbarriere.obj
+	@echo ... mouvementbarriere.i
+	@echo ... mouvementbarriere.s
+	@echo ... mouvementpions.obj
+	@echo ... mouvementpions.i
+	@echo ... mouvementpions.s
 .PHONY : help
 
 
