@@ -1,0 +1,3 @@
+"C:\Users\aurel\OneDrive\Bureau\ECE\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe" -E rm -f CMakeFiles\projetinfo1.dir/objects.a
+C:\Users\aurel\OneDrive\Bureau\ECE\CLION2~1.1\bin\mingw\bin\ar.exe qc CMakeFiles\projetinfo1.dir/objects.a @CMakeFiles\projetinfo1.dir\objects1.rsp
+C:\Users\aurel\OneDrive\Bureau\ECE\CLION2~1.1\bin\mingw\bin\gcc.exe -g -Wl,--whole-archive CMakeFiles\projetinfo1.dir/objects.a -Wl,--no-whole-archive -o projetinfo1.exe -Wl,--out-implib,libprojetinfo1.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\projetinfo1.dir\linkLibs.rsp
