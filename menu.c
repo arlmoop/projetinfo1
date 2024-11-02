@@ -11,13 +11,13 @@ int menudepart (char prenomjoueur1[], char prenomjoueur2[], char prenomjoueur3[]
         printf("\nVoulez vous jouez avec deux ou quatres joueurs ? :");
         scanf("%d", nombrejoueur);
 
-        if (*nombrejoueur == 2) {
+        if (*nombrejoueur >= 2) {
             printf("Entrez le prenom du joueur 1 :\n");
             scanf("%s", prenomjoueur1);
             printf("Entrez le prenom du joueur 2 :\n");
             scanf("%s", prenomjoueur2);
         }
-        if (*nombrejoueur == 4) {
+        if (*nombrejoueur >= 4) {
             printf("Entrez le prenom du joueur 3 :\n");
             scanf("%s", prenomjoueur3);
             printf("Entrez le prenom du joueur 4 :\n");
