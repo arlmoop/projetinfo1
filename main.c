@@ -9,5 +9,4 @@ int main() {
     char plateau[TAILLEPLATEAU][TAILLEPLATEAU];
     creationplateau(plateau);
     affichageplateau(plateau);
-    printf("hello from jaime");
 }
