@@ -5,22 +5,29 @@
 #define TAILLEPLATEAU 9
 
 int menudepart (char prenomjoueur1[], char prenomjoueur2[], char prenomjoueur3[], char prenomjoueur4[], int *nombrejoueur) {
-    printf("BIENVENUE DANS LE JEU DU QUORIDOR\n\n");
-    printf("Voulez vous jouez avec deux ou quatres joueurs ? :");
-    scanf("%d", nombrejoueur);
 
-    if (*nombrejoueur >= 2) {
-        printf("Entrez le prenom du joueur 1 :");
-        scanf("%s", prenomjoueur1);
-        printf("\nEntrez le prenom du joueur 2 :");
-        scanf("%s", prenomjoueur2);
-    }
-    if (*nombrejoueur >= 4) {
-        printf("\nEntrez le prenom du joueur 3 :");
-        scanf("%s", prenomjoueur3);
-        printf("\nEntrez le prenom du joueur 4 :");
-        scanf("%s", prenomjoueur4);
-    }
+        printf("BIENVENUE DANS LE JEU DU QUORIDOR\n\n");
+    do {
+        printf("\nVoulez vous jouez avec deux ou quatres joueurs ? :");
+        scanf("%d", nombrejoueur);
+
+        if (*nombrejoueur >= 2) {
+            printf("Entrez le prenom du joueur 1 :");
+            scanf("%s", prenomjoueur1);
+            printf("\nEntrez le prenom du joueur 2 :");
+            scanf("%s", prenomjoueur2);
+        }
+        if (*nombrejoueur >= 4) {
+            printf("\nEntrez le prenom du joueur 3 :");
+            scanf("%s", prenomjoueur3);
+            printf("\nEntrez le prenom du joueur 4 :");
+            scanf("%s", prenomjoueur4);
+        }
+        if (*nombrejoueur!=2 && *nombrejoueur!=4) {
+            printf("\nERREUR : Vous devez choisir 2 ou 4 joueurs");
+        }
+    } while (*nombrejoueur!=2 && *nombrejoueur!=4);
+
     return prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, *nombrejoueur;
 }
 
