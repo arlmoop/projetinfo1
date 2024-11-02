@@ -7,4 +7,7 @@ add_executable(projetinfo1 main.c
         menu.c
         mouvementpions.c
         mouvementbarriere.c
-        header.h)
+        header.h
+        menu.h
+        mouvementpoins.h
+        mouvementbarriere.h)

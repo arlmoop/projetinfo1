@@ -8,6 +8,6 @@ int main() {
 
     char plateau[TAILLEPLATEAU][TAILLEPLATEAU];
     creationplateau(plateau, nombrejoueur);
-    affichageplateau(plateau);
+    affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
     return 0;
 }

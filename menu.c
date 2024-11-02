@@ -12,15 +12,15 @@ int menudepart (char prenomjoueur1[], char prenomjoueur2[], char prenomjoueur3[]
         scanf("%d", nombrejoueur);
 
         if (*nombrejoueur >= 2) {
-            printf("Entrez le prenom du joueur 1 :");
+            printf("Entrez le prenom du joueur 1 :\n");
             scanf("%s", prenomjoueur1);
-            printf("\nEntrez le prenom du joueur 2 :");
+            printf("Entrez le prenom du joueur 2 :\n");
             scanf("%s", prenomjoueur2);
         }
         if (*nombrejoueur >= 4) {
-            printf("\nEntrez le prenom du joueur 3 :");
+            printf("Entrez le prenom du joueur 3 :\n");
             scanf("%s", prenomjoueur3);
-            printf("\nEntrez le prenom du joueur 4 :");
+            printf("Entrez le prenom du joueur 4 :\n");
             scanf("%s", prenomjoueur4);
         }
         if (*nombrejoueur!=2 && *nombrejoueur!=4) {
@@ -28,7 +28,7 @@ int menudepart (char prenomjoueur1[], char prenomjoueur2[], char prenomjoueur3[]
         }
     } while (*nombrejoueur!=2 && *nombrejoueur!=4);
 
-    return prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, *nombrejoueur;
+    return 0;
 }
 
 void creationplateau(char plateau[TAILLEPLATEAU][TAILLEPLATEAU], int nombrejoueur) {
@@ -47,8 +47,11 @@ void creationplateau(char plateau[TAILLEPLATEAU][TAILLEPLATEAU], int nombrejoueu
     }
 }
 
-void affichageplateau(char plateau[TAILLEPLATEAU][TAILLEPLATEAU]) {
-    printf("\n\n   A  B  C  D  E  F  G  H  I\n");
+void affichageplateau(char plateau[TAILLEPLATEAU][TAILLEPLATEAU], char prenomjoueur1[], char prenomjoueur2[], char prenomjoueur3[], char prenomjoueur4[], int *nombrejoueur) {
+    if (*nombrejoueur == 2) {
+        printf("%s", prenomjoueur1);
+    }
+    printf("\n   A  B  C  D  E  F  G  H  I\n");
     printf("  ___________________________\n");
     for (int i = 0; i < TAILLEPLATEAU; i++) {
         printf("%d |", i + 1);
@@ -59,4 +62,7 @@ void affichageplateau(char plateau[TAILLEPLATEAU][TAILLEPLATEAU]) {
     }
     printf("  ___________________________\n");
     printf("   A  B  C  D  E  F  G  H  I\n");
+    if (*nombrejoueur == 2) {
+        printf("%s\n", prenomjoueur2);
+    }
 }
