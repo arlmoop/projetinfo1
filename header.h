@@ -4,7 +4,10 @@
 
 #ifndef HEADER_H
 #define HEADER_H
+#define TAILLEPLATEAU 9
 
 int menudepart(char prenomjoueur1, char prenomjoueur2, char prenomjoueur3, char prenomjoueur4, int ombrejoueur);
+int creationplateau(char plateau[TAILLEPLATEAU][TAILLEPLATEAU]);
+int affichageplateau(char plateau[TAILLEPLATEAU][TAILLEPLATEAU]);
 
 #endif //HEADER_H

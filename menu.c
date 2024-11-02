@@ -35,4 +35,12 @@ int affichageplateau(char plateau[TAILLEPLATEAU][TAILLEPLATEAU]) {
     printf(" A B C D E F G H I\n");
     printf("________________________\n");
     for (int i = 0; i < TAILLEPLATEAU; i++) {
+        printf("%d |", i + 1);
+        for (int j = 0; j < TAILLEPLATEAU; j++) {
+            printf("%c |", plateau[i][j]);
+        }
+        printf("| %d\n", i + 1);
+    }
+    printf("________________________\n");
+    printf(" A B C D E F G H I\n");
 }
