@@ -7,4 +7,6 @@ int main() {
     menudepart(prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, nombrejoueur);
 
     char plateau[TAILLEPLATEAU][TAILLEPLATEAU];
+    creationplateau(plateau);
+    affichageplateau(plateau);
 }
