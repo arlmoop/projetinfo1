@@ -1,7 +1,8 @@
 #include <stdio.h>
+#include "header.h"
 
-int main(void)
-{
-    printf("Hello, World!\n");
-    return 0;
+int main() {
+    char prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4;
+    int nombrejoueur;
+    menudepart(prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, nombrejoueur);
 }
