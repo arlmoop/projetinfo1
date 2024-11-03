@@ -25,7 +25,7 @@ void deplacementpion(char plateau[TAILLEPLATEAU][TAILLEPLATEAU], int joueurenmou
 
     //demande a l'utilisateur de chosir une direction pour le pion
     printf("Joueurs %d, choisissez une direction valide\n", numerojoueur);
-    printf("1->haut, 2->bas, 3->gauche, 4->droite\n");//les differents choix possibles pour les directions
+    printf("1->haut, 2->bas, 3->gauche, 4->droite :\n");//les differents choix possibles pour les directions
 
     //blindage pour que la valeur saisie par l'utilisateur lors du choix soit correcte
     do {
@@ -36,7 +36,7 @@ void deplacementpion(char plateau[TAILLEPLATEAU][TAILLEPLATEAU], int joueurenmou
         || (choix==4 && y==TAILLEPLATEAU-1)) {
             //affichage du message d'erreur ainsi que les choix possible pour les directions
             printf("ERREUR : Le deplacement est invalde\n");
-            printf("1->haut, 2->bas, 3->gauche, 4->droite\n");
+            printf("1->haut, 2->bas, 3->gauche, 4->droite :\n");
         }
     } while ((choix==1 && x==0) || (choix==2 && x==TAILLEPLATEAU-1) || (choix==3 && y==0)
         || (choix==4 && y==TAILLEPLATEAU-1));//boucle si le choix de l'utilisateur est impossible

@@ -56,9 +56,10 @@ void creationplateau(char plateau[TAILLEPLATEAU][TAILLEPLATEAU], int nombrejoueu
 // sous programme affichant le tableau
 void affichageplateau(char plateau[TAILLEPLATEAU][TAILLEPLATEAU], char prenomjoueur1[], char prenomjoueur2[], char prenomjoueur3[], char prenomjoueur4[], int *nombrejoueur) {
     if (*nombrejoueur == 2) {//test pour savoir si le nombre de joueur est bien deux
-        printf("%s\n", prenomjoueur1);// affiche le prenom du joueur 1 en haut du plateau
+        printf("\n\n%s\n", prenomjoueur1);// affiche le prenom du joueur 1 en haut du plateau
     }
 
+    printf ("   A  B  C  D  E  F  G  H  I\n");//les coordonnées des cases du plateau
     printf("  ___________________________\n");//les delimitations du plateau
     for (int i = 0; i < TAILLEPLATEAU; i++) {//boucle pour remplir le tableau
         printf("%d |", i + 1);/*presentation du tableau (position de "|" entres les cases du plateau)
@@ -68,8 +69,10 @@ void affichageplateau(char plateau[TAILLEPLATEAU][TAILLEPLATEAU], char prenomjou
         }
         printf(" %d\n", i + 1);//Les coordonnées des cases du plateau
     }
+
     printf("  ___________________________\n");//les delimitations du plateau
+    printf ("   A  B  C  D  E  F  G  H  I\n");//les coordonnées des cases du plateau
     if (*nombrejoueur == 2) {//test pour savoir si le nombre de joueur est bien deux
-        printf("%s\n", prenomjoueur2);// affiche le prenom du joueur 2 en haut du plateau
+        printf("%s\n\n", prenomjoueur2);// affiche le prenom du joueur 2 en haut du plateau
     }
 }
