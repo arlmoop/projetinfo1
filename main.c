@@ -30,4 +30,5 @@ int main() {
             joueurenmouvement=1; //si la variable depasse le nombre de joueur alors on recommence un tour
         }
     }
+    
 }
