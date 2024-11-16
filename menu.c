@@ -3,7 +3,7 @@
 //
 #include <stdio.h>
 #define TAILLEPLATEAU 17
-#define TAILLECASEMAX 5
+#define TAILLECASEMAX 4
 //creation des variables contenant lenom des joueurs et le nombre de joueur dans la partie
 int menudepart (char prenomjoueur1[], char prenomjoueur2[], char prenomjoueur3[], char prenomjoueur4[], int *nombrejoueur) {
 
@@ -39,31 +39,19 @@ int menudepart (char prenomjoueur1[], char prenomjoueur2[], char prenomjoueur3[]
 //creation du sous programme creant le plateau
 void creationplateau(char plateau[TAILLEPLATEAU][TAILLEPLATEAU], int nombrejoueur) {/*creation du plateau
     de 9x9*/
-    char lignepairecolonnepaire[TAILLECASEMAX];
-    lignepairecolonnepaire[0] = ' ';
-    lignepairecolonnepaire[1] = '.';
-    lignepairecolonnepaire[2] = ' ';
-    char lignepairecolonneimpaire[TAILLECASEMAX];
-    lignepairecolonnepaire[0] = ' ';
-    lignepairecolonnepaire[1] = ' ';
-    lignepairecolonnepaire[2] = ' ';
-    char ligneimpairecolonnepaire[TAILLECASEMAX];
-    ligneimpairecolonnepaire[0] = ' ';
-    ligneimpairecolonnepaire[1] = ' ';
-    ligneimpairecolonnepaire[2] = ' ';
-    char ligneimpairecolonneimpaire[TAILLECASEMAX];
-    ligneimpairecolonnepaire[0] = ' ';
-    ligneimpairecolonnepaire[1] = '+';
-    ligneimpairecolonnepaire[2] = ' ';
+    char lignepairecolonnepaire[TAILLECASEMAX]={' ', '.', ' '};
+    char lignepairecolonneimpaire[TAILLECASEMAX]={' ', ' ', ' '};
+    char ligneimpairecolonnepaire[TAILLECASEMAX]={' ', ' ', ' '};
+    char ligneimpairecolonneimpaire[TAILLECASEMAX]={' ', '+', ' '};
     printf("%s", lignepairecolonnepaire);
-    if (nombrejoueur >= 2) {//test pour savoir le nombre de joueur dans la partie
+   /* if (nombrejoueur >= 2) {//test pour savoir le nombre de joueur dans la partie
         plateau[0][4] = '1';//placement du joueurs n°1
         plateau[8][4] = '2';//placement du joueurs n°2
     }
     if (nombrejoueur >= 4) {//test pour savoir le nombre de joueur dans la partie
         plateau[4][0] = '3';//placement du joueurs n°3
         plateau[4][8] = '4';//placement du joueurs n°4
-    }
+    }*/
 }
 
 // sous programme affichant le tableau
@@ -74,38 +62,26 @@ void affichageplateau(char plateau[TAILLEPLATEAU][TAILLEPLATEAU], char prenomjou
     if (*nombrejoueur == 2) {//test pour savoir si le nombre de joueur est bien deux
         printf("\n\n%s\n", prenomjoueur1);// affiche le prenom du joueur 1 en haut du plateau
     }
-
     printf ("   A  B  C  D  E  F  G  H  I\n");//les coordonnées des cases du plateau
     printf("  _____________________________\n");//les delimitations du plateau
 
-    for(int y=0; y<TAILLEPLATEAU; y++) {
-        for(int x=0; x<TAILLEPLATEAU; x++) {
-            if (y%2==0) {
-                if (x%2==0) {
-                    for (int a=0; a<3; a++) {
-                        printf("%c", lignepairecolonnepaire[a]);
-                    }
-                } else if (x%2==1) {
-                    for (int b=0; b<3; b++) {
-                        printf("%c", lignepairecolonneimpaire[b]);
-                    }
-                }
-                printf("\n");
-            } else if (y%2==1) {
-                if (x%2==0) {
-                    for (int c=0; c<3; c++) {
-                        printf("%c", ligneimpairecolonnepaire[c]);
-                    }
-                } else if (x%2==1) {
-                    for (int d=0; d<3; d++) {
-                        printf("%c", ligneimpairecolonneimpaire[d]);
-                    }
-                }
-                printf("\n");
-            }
+    for(int y=0; y<8; y++) {
+        for(int a=0; a<8; a++) {
+            printf("%s", lignepairecolonnepaire);
+            printf("%s", lignepairecolonneimpaire);
         }
+        printf("%s\n", lignepairecolonnepaire);
+        for(int b=0; b<8; b++) {
+            printf("%s", ligneimpairecolonnepaire);
+            printf("%s", ligneimpairecolonneimpaire);
+        }
+        printf("%s\n", ligneimpairecolonnepaire);
     }
-
+    for(int c=0; c<8; c++) {
+        printf("%s", lignepairecolonnepaire);
+        printf("%s", lignepairecolonneimpaire);
+    }
+    printf("%s\n", lignepairecolonnepaire);
 
     printf("  ___________________________\n");//les delimitations du plateau
     printf ("   A  B  C  D  E  F  G  H  I\n");//les coordonnées des cases du plateau

@@ -2,7 +2,7 @@
 // Created by aurel on 02/11/2024.
 //
 #define TAILLEPLATEAU 17
-#define TAILLECASEMAX 5
+#define TAILLECASEMAX 4
 #include <stdio.h>
 #include "header.h"
 #include "mouvementpoins.h"

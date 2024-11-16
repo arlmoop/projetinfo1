@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define TAILLECASEMAX 5
+#define TAILLECASEMAX 4
 #define TAILLEPLATEAU 17
 #include "menu.h"
 #include "mouvementpoins.h"
