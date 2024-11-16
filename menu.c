@@ -9,7 +9,7 @@ int menudepart (char prenomjoueur1[], char prenomjoueur2[], char prenomjoueur3[]
 
         printf("BIENVENUE DANS LE JEU DU QUORIDOR\n\n"); //message de presentation
     do {
-        //demande a l'utilisateur de choisir le nombre de joueur
+        //Demande a l'utilisateur de choisir le nombre de joueur
         printf("\nVoulez vous jouez avec deux ou quatres joueurs ? :");
         //recuperation du nombre de joueur dans la variable
         scanf("%d", nombrejoueur);

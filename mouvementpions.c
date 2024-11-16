@@ -23,7 +23,7 @@ void deplacementpion(char plateau[TAILLEPLATEAU][TAILLEPLATEAU], int joueurenmou
         }
     }
 
-    //demande a l'utilisateur de chosir une direction pour le pion
+    //demande a l'utilisateur de chosir une direction pour les pions
     printf("Joueurs %d, choisissez une direction valide\n", numerojoueur);
     printf("1->haut, 2->bas, 3->gauche, 4->droite :\n");//les differents choix possibles pour les directions
 

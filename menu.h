@@ -12,5 +12,4 @@ void creationplateau(char plateau[TAILLEPLATEAU][TAILLEPLATEAU], int nombrejoueu
 void affichageplateau(char plateau[TAILLEPLATEAU][TAILLEPLATEAU], char prenomjoueur1[],
     char prenomjoueur2[], char prenomjoueur3[], char prenomjoueur4[], int *nombrejoueur);
 
-
 #endif //MENU_H
