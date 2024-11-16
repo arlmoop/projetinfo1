@@ -37,7 +37,7 @@ int menudepart (char prenomjoueur1[], char prenomjoueur2[], char prenomjoueur3[]
 }
 
 //creation du sous programme creant le plateau
-void creationplateau(char plateau[TAILLEPLATEAU][17], int nombrejoueur) {
+void creationplateau(char plateau[17][TAILLEPLATEAU], int nombrejoueur) {
     /*creation du plateau
 de 9x9*/
     /*char lignepairecolonnepaire[TAILLECASEMAX]=" . ";
@@ -76,9 +76,9 @@ de 9x9*/
         a++;
         plateau[k][a]=' ';
     }
-/*
+
     int b;
-    for(int l=1; l<16; l++) {
+    for(int l=1; l<16; l+=2) {
         b=0;
         for (int j=0; j<8 ;j++) {
             plateau[l][b]=' ';
@@ -99,7 +99,7 @@ de 9x9*/
         plateau[l][b]=' ';
         b++;
         plateau[l][b]=' ';
-    }*/
+    }
 }
 
 // sous programme affichant le tableau
@@ -110,8 +110,8 @@ void affichageplateau(char plateau[TAILLEPLATEAU][TAILLEPLATEAU], char prenomjou
     if (*nombrejoueur == 2) {//test pour savoir si le nombre de joueur est bien deux
         printf("\n\n%s\n", prenomjoueur1);// affiche le prenom du joueur 1 en haut du plateau
     }
-    printf ("   A  B  C  D  E  F  G  H  I\n");//les coordonnées des cases du plateau
-    printf("  _____________________________\n");//les delimitations du plateau
+    printf (" A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q\n");//les coordonnées des cases du plateau
+    printf("____________________________________________________\n");//les delimitations du plateau
 
     for (int e=0; e<17; e++) {
         for (int f=0; f<51; f++) {
@@ -120,33 +120,10 @@ void affichageplateau(char plateau[TAILLEPLATEAU][TAILLEPLATEAU], char prenomjou
         printf("\n");
     }
 
-    /*// Affichage du plateau
-    for (int y = 0; y < TAILLEPLATEAU; y++) {
-        for (int x = 0; x < TAILLEPLATEAU; x++) {
-            // Si on est sur une ligne paire
-            if (y % 2 == 0) {
-                if (x % 2 == 0) {
-                    // Affichage de la ligne paire-colonne paire
-                    printf("%s", lignepairecolonnepaire);
-                } else {
-                    // Affichage de la ligne paire-colonne impaire
-                    printf("%s", lignepairecolonneimpaire);
-                }
-            } else {
-                if (x % 2 == 0) {
-                    // Affichage de la ligne impaire-colonne paire
-                    printf("%s", ligneimpairecolonnepaire);
-                } else {
-                    // Affichage de la ligne impaire-colonne impaire
-                    printf("%s", ligneimpairecolonneimpaire);
-                }
-            }
-        }
-        printf("\n");
-    }*/
 
-    printf("  ___________________________\n");  // Délimitation du plateau
-    printf("   A  B  C  D  E  F  G  H  I\n");  // Coordonnées des cases du plateau
+
+    printf("____________________________________________________\n");  // Délimitation du plateau
+    printf(" A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q\n");  // Coordonnées des cases du plateau
     if (*nombrejoueur == 2) {
         printf("%s\n\n", prenomjoueur2);  // Affiche le prénom du joueur 2
     }
