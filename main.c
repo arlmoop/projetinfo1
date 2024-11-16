@@ -24,7 +24,7 @@ int main() {
     creationplateau(plateau, nombrejoueur);
     //affiche le plateau de jeu en debut de partie et le nom des joueurs
     affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur,
-        lignepairecolonnepaire, lignepairecolonneimpaire, ligneimpairecolonnepaire, ligneimpairecolonneimpaire);
+    lignepairecolonnepaire, lignepairecolonneimpaire, ligneimpairecolonnepaire, ligneimpairecolonneimpaire);
 
     int joueurenmouvement =1; //variable comptant le joueur qui est en train de jouer
 
@@ -32,7 +32,9 @@ int main() {
         la fin de la partie*/
         deplacementpion(plateau, joueurenmouvement); //deplacement du joueur en train de jouer
         //affichage du plateau apres chaque tour de joueur
-        affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
+        affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur,
+    lignepairecolonnepaire, lignepairecolonneimpaire, ligneimpairecolonnepaire, ligneimpairecolonneimpaire);
+
 
         joueurenmouvement=joueurenmouvement+1; //passage au joueur suivant
         if (joueurenmouvement>nombrejoueur) {

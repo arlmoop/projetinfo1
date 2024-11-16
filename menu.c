@@ -55,8 +55,7 @@ void creationplateau(char plateau[TAILLEPLATEAU][TAILLEPLATEAU], int nombrejoueu
     ligneimpairecolonnepaire[0] = ' ';
     ligneimpairecolonnepaire[1] = '+';
     ligneimpairecolonnepaire[2] = ' ';
-
-
+    printf("%s", lignepairecolonnepaire);
     if (nombrejoueur >= 2) {//test pour savoir le nombre de joueur dans la partie
         plateau[0][4] = '1';//placement du joueurs n°1
         plateau[8][4] = '2';//placement du joueurs n°2
@@ -91,6 +90,7 @@ void affichageplateau(char plateau[TAILLEPLATEAU][TAILLEPLATEAU], char prenomjou
                         printf("%c", lignepairecolonneimpaire[b]);
                     }
                 }
+                printf("\n");
             } else if (y%2==1) {
                 if (x%2==0) {
                     for (int c=0; c<3; c++) {
@@ -101,6 +101,7 @@ void affichageplateau(char plateau[TAILLEPLATEAU][TAILLEPLATEAU], char prenomjou
                         printf("%c", ligneimpairecolonneimpaire[d]);
                     }
                 }
+                printf("\n");
             }
         }
     }
