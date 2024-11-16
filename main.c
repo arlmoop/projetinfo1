@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+
 #include "menu.h"
 #include "mouvementpoins.h"
 
@@ -27,7 +30,9 @@ int main() {
 
         joueurenmouvement=joueurenmouvement+1; //passage au joueur suivant
         if (joueurenmouvement>nombrejoueur) {
-            joueurenmouvement=1; //si la variable depasse le nombre de joueur alors on recommence un tour
+            joueurenmouvement=1; //si la variable depasse le nombre de joueur alors on recommence un tourd
         }
+        system("pause");
     }
+
 }
