@@ -4,7 +4,7 @@
 
 #ifndef MENU_H
 #define MENU_H
-#define TAILLEPLATEAU 17
+#define TAILLEPLATEAU 51
 #define TAILLECASEMAX 4
 
 int menudepart(char prenomjoueur1[], char prenomjoueur2[], char prenomjoueur3[],

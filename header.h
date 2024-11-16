@@ -4,6 +4,6 @@
 #ifndef HEADER_H
 #define HEADER_H
 
-#define TAILLEPLATEAU 17
+#define TAILLEPLATEAU 51
 
 #endif // HEADER_H
