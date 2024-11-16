@@ -2,7 +2,8 @@
 // Created by aurel on 02/11/2024.
 //
 #include <stdio.h>
-#define TAILLEPLATEAU 9
+#define TAILLEPLATEAU 17
+#define TAILLECASEMAX 5
 //creation des variables contenant lenom des joueurs et le nombre de joueur dans la partie
 int menudepart (char prenomjoueur1[], char prenomjoueur2[], char prenomjoueur3[], char prenomjoueur4[], int *nombrejoueur) {
 
@@ -38,11 +39,24 @@ int menudepart (char prenomjoueur1[], char prenomjoueur2[], char prenomjoueur3[]
 //creation du sous programme creant le plateau
 void creationplateau(char plateau[TAILLEPLATEAU][TAILLEPLATEAU], int nombrejoueur) {/*creation du plateau
     de 9x9*/
-    for (int i = 0; i < TAILLEPLATEAU; i++) {
-        for (int j = 0; j < TAILLEPLATEAU; j++) { // boucles pour remplir le tableaud de ".", ce qui fait les cases
-            plateau[i][j] = '.';//remplissage du tableau avec des "."
-        }
-    }
+    char lignepairecolonnepaire[TAILLECASEMAX];
+    lignepairecolonnepaire[0] = ' ';
+    lignepairecolonnepaire[1] = '.';
+    lignepairecolonnepaire[2] = ' ';
+    char lignepairecolonneimpaire[TAILLECASEMAX];
+    lignepairecolonnepaire[0] = ' ';
+    lignepairecolonnepaire[1] = ' ';
+    lignepairecolonnepaire[2] = ' ';
+    char ligneimpairecolonnepaire[TAILLECASEMAX];
+    ligneimpairecolonnepaire[0] = ' ';
+    ligneimpairecolonnepaire[1] = ' ';
+    ligneimpairecolonnepaire[2] = ' ';
+    char ligneimpairecolonneimpaire[TAILLECASEMAX];
+    ligneimpairecolonnepaire[0] = ' ';
+    ligneimpairecolonnepaire[1] = '+';
+    ligneimpairecolonnepaire[2] = ' ';
+
+
     if (nombrejoueur >= 2) {//test pour savoir le nombre de joueur dans la partie
         plateau[0][4] = '1';//placement du joueurs n°1
         plateau[8][4] = '2';//placement du joueurs n°2
@@ -54,21 +68,43 @@ void creationplateau(char plateau[TAILLEPLATEAU][TAILLEPLATEAU], int nombrejoueu
 }
 
 // sous programme affichant le tableau
-void affichageplateau(char plateau[TAILLEPLATEAU][TAILLEPLATEAU], char prenomjoueur1[], char prenomjoueur2[], char prenomjoueur3[], char prenomjoueur4[], int *nombrejoueur) {
+void affichageplateau(char plateau[TAILLEPLATEAU][TAILLEPLATEAU], char prenomjoueur1[], char prenomjoueur2[],
+    char prenomjoueur3[], char prenomjoueur4[], int *nombrejoueur, char lignepairecolonnepaire[TAILLECASEMAX],
+    char lignepairecolonneimpaire[TAILLECASEMAX], char ligneimpairecolonnepaire[TAILLECASEMAX],
+    char ligneimpairecolonneimpaire[TAILLECASEMAX]) {
     if (*nombrejoueur == 2) {//test pour savoir si le nombre de joueur est bien deux
         printf("\n\n%s\n", prenomjoueur1);// affiche le prenom du joueur 1 en haut du plateau
     }
 
     printf ("   A  B  C  D  E  F  G  H  I\n");//les coordonnées des cases du plateau
-    printf("  ___________________________\n");//les delimitations du plateau
-    for (int i = 0; i < TAILLEPLATEAU; i++) {//boucle pour remplir le tableau
-        printf("%d |", i + 1);/*presentation du tableau (position de "|" entres les cases du plateau)
-        + Les coordonnées des cases du plateau*/
-        for (int j = 0; j < TAILLEPLATEAU; j++) {//boucle pour remplir le tableau
-            printf("%c |", plateau[i][j]);//presentation du tableau (position de "|" entres les cases du plateau)
+    printf("  _____________________________\n");//les delimitations du plateau
+
+    for(int y=0; y<TAILLEPLATEAU; y++) {
+        for(int x=0; x<TAILLEPLATEAU; x++) {
+            if (y%2==0) {
+                if (x%2==0) {
+                    for (int a=0; a<3; a++) {
+                        printf("%c", lignepairecolonnepaire[a]);
+                    }
+                } else if (x%2==1) {
+                    for (int b=0; b<3; b++) {
+                        printf("%c", lignepairecolonneimpaire[b]);
+                    }
+                }
+            } else if (y%2==1) {
+                if (x%2==0) {
+                    for (int c=0; c<3; c++) {
+                        printf("%c", ligneimpairecolonnepaire[c]);
+                    }
+                } else if (x%2==1) {
+                    for (int d=0; d<3; d++) {
+                        printf("%c", ligneimpairecolonneimpaire[d]);
+                    }
+                }
+            }
         }
-        printf(" %d\n", i + 1);//Les coordonnées des cases du plateau
     }
+
 
     printf("  ___________________________\n");//les delimitations du plateau
     printf ("   A  B  C  D  E  F  G  H  I\n");//les coordonnées des cases du plateau

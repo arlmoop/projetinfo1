@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#define TAILLECASEMAX 5
+#define TAILLEPLATEAU 17
 #include "menu.h"
 #include "mouvementpoins.h"
 
@@ -16,9 +17,14 @@ int main() {
     //initialisation du plateau de jeu
     char plateau[TAILLEPLATEAU][TAILLEPLATEAU];
     //initialisation du plateau de jeu en fonction du nombre de joueur dans la partie
+    char lignepairecolonnepaire[TAILLECASEMAX];
+    char lignepairecolonneimpaire[TAILLECASEMAX];
+    char ligneimpairecolonnepaire[TAILLECASEMAX];
+    char ligneimpairecolonneimpaire[TAILLECASEMAX];
     creationplateau(plateau, nombrejoueur);
     //affiche le plateau de jeu en debut de partie et le nom des joueurs
-    affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
+    affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur,
+        lignepairecolonnepaire, lignepairecolonneimpaire, ligneimpairecolonnepaire, ligneimpairecolonneimpaire);
 
     int joueurenmouvement =1; //variable comptant le joueur qui est en train de jouer
 
