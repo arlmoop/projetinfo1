@@ -1,14 +1,15 @@
 //
 // Created by aurel on 02/11/2024.
 //
-#define TAILLEPLATEAU 51
+#define TAILLEPLATEAUHORIZONTALE 51
+#define TAILLEPLATEAUVERTICALE 17
 #define TAILLECASEMAX 4
 #include <stdio.h>
 #include "header.h"
 #include "mouvementpoins.h"
 
 //fonction pour deplacer le pion du joueur qui est en train de jouer
-void deplacementpion(char plateau[TAILLEPLATEAU][TAILLEPLATEAU], int joueurenmouvement) {
+void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], int joueurenmouvement) {
     int x=-1, y=-1;// variable suivant les coordonnées des pions
     int numerojoueur=joueurenmouvement;//initalisation du numero du joueur avec le joueur qui joue
     int choix;//variable stockant le choix du joueur pour la direction des pions
