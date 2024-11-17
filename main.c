@@ -44,6 +44,8 @@ int main() {
         }
         if (mouvement_barriere==2) {
             pose_barriere(plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], mouvement_barriere);
+            affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur,
+        lignepairecolonnepaire, lignepairecolonneimpaire, ligneimpairecolonnepaire, ligneimpairecolonneimpaire);
         }
 
 
