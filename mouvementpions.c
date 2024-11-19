@@ -15,8 +15,8 @@ void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
     int choix;//variable stockant le choix du joueur pour la direction des pions
 
     //recher de la position du pion sur le plateau
-    for (int i=0; i<TAILLEPLATEAU; i++) {//boucle qui parcours le plateau a la recherche de la position du pion
-        for (int j=0; j<TAILLEPLATEAU; j++) {//boucle qui parcours le plateau a la recherche de la position du pion
+    for (int i=0; i<TAILLEPLATEAUVERTICALE; i++) {//boucle qui parcours le plateau a la recherche de la position du pion
+        for (int j=0; j<TAILLEPLATEAUHORIZONTALE; j++) {//boucle qui parcours le plateau a la recherche de la position du pion
             if (plateau[i][j] == '1'+numerojoueur-1) {/*verification si le pion est sur la case
                 parcourue avec par le test*/
                 x=i;//enregistre la ligne sur laquelle est le pion
@@ -35,14 +35,14 @@ void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
         scanf("%d", &choix);//demande a l'utilisateur de faire un choix
 
         //test pour afficher un message d'erreur
-        if ((choix==1 && x==0) || (choix==2 && x==TAILLEPLATEAU-1) || (choix==3 && y==0)
-        || (choix==4 && y==TAILLEPLATEAU-1)) {
+        if ((choix==1 && x==0) || (choix==2 && x==TAILLEPLATEAUVERTICALE-1) || (choix==3 && y==0)
+        || (choix==4 && y==TAILLEPLATEAUVERTICALE-1)) {
             //affichage du message d'erreur ainsi que les choix possible pour les directions
             printf("ERREUR : Le deplacement est invalde\n");
             printf("1->haut, 2->bas, 3->gauche, 4->droite :\n");
         }
-    } while ((choix==1 && x==0) || (choix==2 && x==TAILLEPLATEAU-1) || (choix==3 && y==0)
-        || (choix==4 && y==TAILLEPLATEAU-1));//boucle si le choix de l'utilisateur est impossible
+    } while ((choix==1 && x==0) || (choix==2 && x==TAILLEPLATEAUHORIZONTALE-1) || (choix==3 && y==0)
+        || (choix==4 && y==TAILLEPLATEAUHORIZONTALE-1));//boucle si le choix de l'utilisateur est impossible
 
     if (choix==1) {
         x=x-1; //deplace le pions vers le haut

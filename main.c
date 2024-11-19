@@ -8,6 +8,11 @@
 #include "header.h"
 #include "mouvementbarriere.h"
 
+typedef struct {
+    int ligne;
+    char colonne;
+}coordonnees;
+
 int main() {
 
     //creation des variables pour le prenom des joueurs
@@ -20,14 +25,10 @@ int main() {
     //initialisation du plateau de jeu
     char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE];
     //initialisation du plateau de jeu en fonction du nombre de joueur dans la partie
-    char lignepairecolonnepaire[TAILLECASEMAX];
-    char lignepairecolonneimpaire[TAILLECASEMAX];
-    char ligneimpairecolonnepaire[TAILLECASEMAX];
-    char ligneimpairecolonneimpaire[TAILLECASEMAX];
+
     creationplateau(plateau, nombrejoueur);
     //affiche le plateau de jeu en debut de partie et le nom des joueurs
-    affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur,
-    lignepairecolonnepaire, lignepairecolonneimpaire, ligneimpairecolonnepaire, ligneimpairecolonneimpaire);
+    affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
 
     int joueurenmouvement =1; //variable comptant le joueur qui est en train de jouer
 
@@ -39,13 +40,11 @@ int main() {
         if (mouvement_barriere==1) {
             deplacementpion(plateau, joueurenmouvement); //deplacement du joueur en train de jouer
             //affichage du plateau apres chaque tour de joueur
-            affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur,
-        lignepairecolonnepaire, lignepairecolonneimpaire, ligneimpairecolonnepaire, ligneimpairecolonneimpaire);
+            affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
         }
         if (mouvement_barriere==2) {
-            pose_barriere(plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], mouvement_barriere);
-            affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur,
-        lignepairecolonnepaire, lignepairecolonneimpaire, ligneimpairecolonnepaire, ligneimpairecolonneimpaire);
+            pose_barriere(plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], mouvement_barriere, coordonnee);
+            affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
         }
 
 

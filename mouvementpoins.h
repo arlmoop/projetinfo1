@@ -5,7 +5,8 @@
 #ifndef MOUVEMENTPOINS_H
 #define MOUVEMENTPOINS_H
 
-
-void deplacementpion(char plateau[TAILLEPLATEAU][TAILLEPLATEAU], int joueurenmouvement);
+#define TAILLEPLATEAUHORIZONTALE 51
+#define TAILLEPLATEAUVERTICALE 17
+void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], int joueurenmouvement);
 
 #endif //MOUVEMENTPOINS_H

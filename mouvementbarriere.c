@@ -4,14 +4,25 @@
 #include <stdio.h>
 #define TAILLEPLATEAUHORIZONTALE 51
 #define TAILLEPLATEAUVERTICALE 17
+typedef struct {
+    int ligne;
+    char colonne;
+}coordonnees;
 
-void pose_barriere (char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], int mouvement_barriere) {
+void pose_barriere (char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], int mouvement_barriere, coordonnees coordonnee) {
     char coordonnee_barriere[4];
     int v=0, h=0;
+    char lettre;
+    int nombre;
     if (mouvement_barriere==2) {
-        printf("Choisissez les coordonnées de l'emplacement de la barriere :");
-        scanf("%s", &coordonnee_barriere);
+        do {
+            printf("Choisissez les coordonnées de l'emplacement de la barriere :");
+            scanf("%c %d", &coordonnee.colonne, &coordonnee.ligne);
+        } while (coordonnee.colonne<= 'A' || coordonnee.colonne>= 'Q');
+        plateau[coordonnee.ligne-1][coordonnee.colonne-17]='c';
 
+
+/*
         if ((coordonnee_barriere[2]>='A' && coordonnee_barriere[2]<='Q')
             && (coordonnee_barriere[0]>='0' && coordonnee_barriere[0]<='9')
             && coordonnee_barriere[1]>='0' && coordonnee_barriere[1]<='6') {
@@ -143,6 +154,6 @@ void pose_barriere (char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTAL
             plateau[v][h-1]='-';
             plateau[v][h]='-';
             plateau[v][h+1]='-';
-        }
+        }*/
     }
 }

@@ -5,5 +5,5 @@
 #ifndef MOUVEMENTBARRIERE_H
 #define MOUVEMENTBARRIERE_H
 
-void pose_barriere (char tableau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], int mouvement_barriere);
+void pose_barriere (char tableau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], int mouvement_barriere, struct coordonnees coordonnee);
 #endif //MOUVEMENTBARRIERE_H
