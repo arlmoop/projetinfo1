@@ -8,11 +8,6 @@
 #include "header.h"
 #include "mouvementbarriere.h"
 
-typedef struct {
-    int ligne;
-    char colonne;
-}coordonnees;
-
 int main() {
 
     //creation des variables pour le prenom des joueurs
@@ -31,21 +26,22 @@ int main() {
     affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
 
     int joueurenmouvement =1; //variable comptant le joueur qui est en train de jouer
-
+    coordonnees coor_donnee;
     while (1) { /*Boucle gérant le tour des joueurs (pour l'instant infine car pas de code pour
         la fin de la partie*/
-
-        printf("\n1. Deplacer le pion\n2. Poser une barriere\nChoisissez une valeur valide :");
-        scanf("%d", &mouvement_barriere);
-        if (mouvement_barriere==1) {
-            deplacementpion(plateau, joueurenmouvement); //deplacement du joueur en train de jouer
-            //affichage du plateau apres chaque tour de joueur
-            affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
-        }
-        if (mouvement_barriere==2) {
-            pose_barriere(plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], mouvement_barriere, coordonnee);
-            affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
-        }
+        do {
+            printf("\n1. Deplacer le pion\n2. Poser une barriere\nChoisissez une valeur valide :");
+            scanf("%d", &mouvement_barriere);
+            if (mouvement_barriere==1) {
+                deplacementpion(plateau, joueurenmouvement); //deplacement du joueur en train de jouer
+                //affichage du plateau apres chaque tour de joueur
+                affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
+            }
+            if (mouvement_barriere==2) {
+                pose_barriere(plateau, mouvement_barriere, coor_donnee);
+                affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
+            }
+        } while (mouvement_barriere!=1 && mouvement_barriere!=2);
 
 
         joueurenmouvement=joueurenmouvement+1; //passage au joueur suivant
