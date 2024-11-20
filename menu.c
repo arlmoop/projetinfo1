@@ -129,8 +129,13 @@ void affichageplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONT
 
     printf("   |___________________________________________________|\n");  // Délimitation du plateau
     printf("     A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q\n");  // Coordonnées des cases du plateau
-    if (*nombrejoueur == 2) {
-        printf("%s\n\n", prenomjoueur2);  // Affiche le prénom du joueur 2
+    if (*nombrejoueur == 2) {//test pour savoir si le nombre de joueur est bien deux
+        printf("\nPrenom joueur 1 : %s\n", prenomjoueur1);// affiche le prenom du joueur 1 en haut du plateau
+        printf("Prenom joueur 2 : %s\n", prenomjoueur2);
+    }
+    if (*nombrejoueur == 4) {
+        printf("Prenom joueur 3 : %s\n", prenomjoueur3);
+        printf("Prenom joueur 4 : %s\n", prenomjoueur4);
     }
 }
 

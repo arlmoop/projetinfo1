@@ -26,7 +26,7 @@ int main() {
     affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
 
     int joueurenmouvement =1; //variable comptant le joueur qui est en train de jouer
-    coordonnees coordonnees_b;
+    coordonnees coordonnees_b, coordonnees_b1, coordonnees_b2;
     while (1) { /*Boucle gérant le tour des joueurs (pour l'instant infine car pas de code pour
         la fin de la partie*/
         do {
@@ -38,7 +38,7 @@ int main() {
                 affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
             }
             if (mouvement_barriere==2) {
-                pose_barriere(plateau, mouvement_barriere, coordonnees_b);
+                pose2(plateau, mouvement_barriere, coordonnees_b, coordonnees_b1, coordonnees_b2);
                 affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
             }
         } while (mouvement_barriere!=1 && mouvement_barriere!=2);

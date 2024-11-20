@@ -1,13 +1,13 @@
-//
-// Created by aurel on 02/11/2024.
-//
 #include <stdio.h>
 #define TAILLEPLATEAUHORIZONTALE 51
 #define TAILLEPLATEAUVERTICALE 17
+
 typedef struct {
     int ligne;
     char colonne;
-}coordonnees;
+} coordonnees;
+
+// Fonction pour vérifier si la case est valide et si elle est vide
 
 coordonnees pose_barriere (char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], int mouvement_barriere, coordonnees coordonnees_b) {
     if (mouvement_barriere==2) {
@@ -39,4 +39,66 @@ coordonnees pose_barriere (char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHOR
             || coordonnees_b.ligne<1 || coordonnees_b.ligne>17 || coordonnees_b.colonne<'A' || coordonnees_b.colonne>'Q');
     }
     return coordonnees_b;
+}
+
+void pose2(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], int mouvement_barriere, coordonnees coordonnees_b, coordonnees coordonnees_b1, coordonnees coordonnees_b2) {
+    int ligne_diff;
+    int colonne_diff;
+    do {
+        printf("Début du placement de la barrière :\n");
+        coordonnees_b1 = pose_barriere(plateau, mouvement_barriere, coordonnees_b);
+        coordonnees_b2 = pose_barriere(plateau, mouvement_barriere, coordonnees_b);
+
+        ligne_diff = coordonnees_b1.ligne - coordonnees_b2.ligne;
+        colonne_diff = coordonnees_b1.colonne - coordonnees_b2.colonne;
+
+        if (((ligne_diff != 0 && ligne_diff != 2 && ligne_diff != -2) || (colonne_diff != 0 && colonne_diff != 2 && colonne_diff != -2))
+        || (coordonnees_b1.ligne == coordonnees_b2.ligne && coordonnees_b1.colonne == coordonnees_b2.colonne)
+        || (coordonnees_b1.ligne < 1 || coordonnees_b1.ligne > TAILLEPLATEAUVERTICALE || coordonnees_b2.ligne < 1 || coordonnees_b2.ligne > TAILLEPLATEAUVERTICALE)
+        || (coordonnees_b1.colonne < 'A' || coordonnees_b1.colonne > 'Q' || coordonnees_b2.colonne < 'A' || coordonnees_b2.colonne > 'Q')
+        || (coordonnees_b1.colonne%2==0 && coordonnees_b2.colonne%2==0 && coordonnees_b1.ligne == coordonnees_b2.ligne)
+        || (coordonnees_b1.ligne%2==0 && coordonnees_b2.ligne%2==0 && coordonnees_b1.colonne == coordonnees_b2.colonne)) {
+            if((coordonnees_b1.ligne-1)%2==1) {
+                if((coordonnees_b1.colonne-'A')%2==0) {
+                    plateau[coordonnees_b1.ligne-1][(coordonnees_b1.colonne-'A')*3]=' ';
+                    plateau[coordonnees_b1.ligne-1][(coordonnees_b1.colonne-'A')*3+1]=' ';
+                    plateau[coordonnees_b1.ligne-1][(coordonnees_b1.colonne-'A')*3+2]=' ';
+                }
+                else if((coordonnees_b1.colonne-'A')%2==1) {
+                    printf("Impossible\n");
+                }
+            }
+            else if((coordonnees_b1.ligne-1)%2==0) {
+                if((coordonnees_b1.colonne-'A')%2==0) {
+                    printf("Impossible\n");
+                }
+                else if((coordonnees_b1.colonne-'A')%2==1) {
+                    plateau[coordonnees_b1.ligne-1][(coordonnees_b1.colonne-'A')*3+1]=' ';
+                }
+            }
+            if((coordonnees_b2.ligne-1)%2==1) {
+                if((coordonnees_b2.colonne-'A')%2==0) {
+                    plateau[coordonnees_b2.ligne-1][(coordonnees_b2.colonne-'A')*3]=' ';
+                    plateau[coordonnees_b2.ligne-1][(coordonnees_b2.colonne-'A')*3+1]=' ';
+                    plateau[coordonnees_b2.ligne-1][(coordonnees_b2.colonne-'A')*3+2]=' ';
+                }
+                else if((coordonnees_b2.colonne-'A')%2==1) {
+                    printf("Impossible\n");
+                }
+            }
+            else if((coordonnees_b2.ligne-1)%2==0) {
+                if((coordonnees_b2.colonne-'A')%2==0) {
+                    printf("Impossible\n");
+                }
+                else if((coordonnees_b2.colonne-'A')%2==1) {
+                    plateau[coordonnees_b2.ligne-1][(coordonnees_b2.colonne-'A')*3+1]=' ';
+                }
+            }
+        }
+    } while (((ligne_diff != 0 && ligne_diff != 2 && ligne_diff != -2) || (colonne_diff != 0 && colonne_diff != 2 && colonne_diff != -2))
+        || (coordonnees_b1.ligne == coordonnees_b2.ligne && coordonnees_b1.colonne == coordonnees_b2.colonne)
+        || (coordonnees_b1.ligne < 1 || coordonnees_b1.ligne > TAILLEPLATEAUVERTICALE || coordonnees_b2.ligne < 1 || coordonnees_b2.ligne > TAILLEPLATEAUVERTICALE)
+        || (coordonnees_b1.colonne < 'A' || coordonnees_b1.colonne > 'Q' || coordonnees_b2.colonne < 'A' || coordonnees_b2.colonne > 'Q')
+        || (coordonnees_b1.colonne%2==0 && coordonnees_b2.colonne%2==0 && coordonnees_b1.ligne == coordonnees_b2.ligne)
+        || (coordonnees_b1.ligne%2==0 && coordonnees_b2.ligne%2==0 && coordonnees_b1.colonne == coordonnees_b2.colonne));
 }
