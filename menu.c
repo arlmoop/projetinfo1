@@ -7,8 +7,7 @@
 #define TAILLECASEMAX 4
 //creation des variables contenant lenom des joueurs et le nombre de joueur dans la partie
 void menudepart (char prenomjoueur1[], char prenomjoueur2[], char prenomjoueur3[], char prenomjoueur4[], int *nombrejoueur) {
-
-        printf("BIENVENUE DANS LE JEU DU QUORIDOR\n\n"); //message de presentation
+    printf("BIENVENUE DANS LE JEU DU QUORIDOR\n\n"); //message de presentation
     do {
         //Demande a l'utilisateur de choisir le nombre de joueur
         printf("\nVoulez vous jouez avec deux ou quatres joueurs ? :");
@@ -114,17 +113,31 @@ void affichageplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONT
     printf ("     A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q\n");//les coordonnées des cases du plateau
     printf("    ___________________________________________________\n");//les delimitations du plateau
 
-    for (int e=0; e<17; e++) {
+    for (int e=0; e<TAILLEPLATEAUVERTICALE; e++) {
         if(e<9) {
             printf(" %d |", e+1);
         }
         else {
             printf("%d |", e+1);
         }
-        for (int f=0; f<51; f++) {
+        for (int f=0; f<TAILLEPLATEAUHORIZONTALE; f++) {
             printf("%c", plateau[e][f]);
+
         }
-        printf("| %d\n", e+1);
+        printf("| %d  ", e+1);
+        if (e==1) {
+            printf("  Le prenom du joueur 1 est : %s", prenomjoueur1);
+        }
+        if (e==4) {
+            printf("  Le prenom du joueur 2 est : %s", prenomjoueur2);
+        }
+        if (e==7 && *nombrejoueur==4) {
+            printf("  Le prenom du joueur 3 est : %s", prenomjoueur3);
+        }
+        if (e==10 && *nombrejoueur==4) {
+            printf(" Le prenom du joueur 4 est : %s", prenomjoueur4);
+        }
+        printf("\n");
     }
 
     printf("   |___________________________________________________|\n");  // Délimitation du plateau

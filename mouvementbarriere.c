@@ -12,9 +12,14 @@ typedef struct {
 coordonnees pose_barriere (char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], int mouvement_barriere, coordonnees coordonnees_b) {
     if (mouvement_barriere==2) {
         do {
-            printf("Choisissez les coordonnées de l'emplacement de la barriere :");
-            fflush(stdin);
-            scanf("%c%d", &coordonnees_b.colonne, &coordonnees_b.ligne);
+            do {
+                printf("Choisissez les coordonnees de l'emplacement de la barriere :");
+                fflush(stdin);
+                scanf("%c%d", &coordonnees_b.colonne, &coordonnees_b.ligne);
+                if (coordonnees_b.colonne<'A' || coordonnees_b.colonne>'Z' || coordonnees_b.ligne<1 || coordonnees_b.ligne>17) {
+                    printf("ERREUR : Veuillez saisir une coordonnee possible");
+                }
+            } while (coordonnees_b.colonne<'A' || coordonnees_b.colonne>'Z' || coordonnees_b.ligne<1 || coordonnees_b.ligne>17);
             printf("coord : %d %d\n", coordonnees_b.colonne-'A', coordonnees_b.ligne);
             if((coordonnees_b.ligne-1)%2==1) {
                 if((coordonnees_b.colonne-'A')%2==0) {
@@ -41,11 +46,11 @@ coordonnees pose_barriere (char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHOR
     return coordonnees_b;
 }
 
-void pose2(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], int mouvement_barriere, coordonnees coordonnees_b, coordonnees coordonnees_b1, coordonnees coordonnees_b2) {
+void pose2(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], int mouvement_barriere, coordonnees coordonnees_b,
+    coordonnees coordonnees_b1, coordonnees coordonnees_b2) {
     int ligne_diff;
     int colonne_diff;
     do {
-        printf("Début du placement de la barrière :\n");
         coordonnees_b1 = pose_barriere(plateau, mouvement_barriere, coordonnees_b);
         coordonnees_b2 = pose_barriere(plateau, mouvement_barriere, coordonnees_b);
 

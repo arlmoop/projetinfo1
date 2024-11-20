@@ -14,6 +14,8 @@ int main() {
     char prenomjoueur1[20], prenomjoueur2[20], prenomjoueur3[20], prenomjoueur4[20];
     int nombrejoueur; //creation des variable contenant le nombre de joueur dans la partie
     int mouvement_barriere;
+    int *nb_barriere1;
+    nb_barriere1 =0;
     //execution de la fonction qui affiche le menu
     menudepart(prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
 
@@ -30,19 +32,22 @@ int main() {
     while (1) { /*Boucle gérant le tour des joueurs (pour l'instant infine car pas de code pour
         la fin de la partie*/
         do {
-            printf("\n1. Deplacer le pion\n2. Poser une barriere\nChoisissez une valeur valide :");
-            scanf("%d", &mouvement_barriere);
+            do {
+                printf("\n1. Deplacer le pion\n2. Poser une barriere\nChoisissez une valeur valide :");
+                scanf("%d", &mouvement_barriere);
+                if (mouvement_barriere==2) {
+                    nb_barriere1--;
+                }
+            } while ((mouvement_barriere!=1 && mouvement_barriere!=2));
             if (mouvement_barriere==1) {
                 deplacementpion(plateau, joueurenmouvement); //deplacement du joueur en train de jouer
-                //affichage du plateau apres chaque tour de joueur
-                affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
+                affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);//affichage du plateau apres chaque tour de joueur
             }
             if (mouvement_barriere==2) {
                 pose2(plateau, mouvement_barriere, coordonnees_b, coordonnees_b1, coordonnees_b2);
                 affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
             }
         } while (mouvement_barriere!=1 && mouvement_barriere!=2);
-
 
         joueurenmouvement=joueurenmouvement+1; //passage au joueur suivant
         if (joueurenmouvement>nombrejoueur) {
