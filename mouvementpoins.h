@@ -7,6 +7,12 @@
 
 #define TAILLEPLATEAUHORIZONTALE 51
 #define TAILLEPLATEAUVERTICALE 17
-void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], int joueurenmouvement);
+
+typedef struct {
+    int ligne;
+    char colonne;
+}joueur;
+
+void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], joueur pion);
 
 #endif //MOUVEMENTPOINS_H

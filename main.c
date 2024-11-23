@@ -1,59 +1,61 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define TAILLECASEMAX 4
+#include <time.h>
 #define TAILLEPLATEAUHORIZONTALE 51
 #define TAILLEPLATEAUVERTICALE 17
-#include "menu.h"
-#include "mouvementpoins.h"
 #include "header.h"
+#include "menu.h"
 #include "mouvementbarriere.h"
+#include "mouvementpoins.h"
 
 int main() {
 
+    srand(time(NULL));
     //creation des variables pour le prenom des joueurs
     char prenomjoueur1[20], prenomjoueur2[20], prenomjoueur3[20], prenomjoueur4[20];
-    int nombrejoueur; //creation des variable contenant le nombre de joueur dans la partie
-    int mouvement_barriere;
-    int *nb_barriere1;
-    nb_barriere1 =0;
+    int nombrejoueur;
+    int mouvement_barriere, tourjoueur ;
+    char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE];
+    coordonnees coordonnees_b, coordonnees_b1, coordonnees_b2, pion;
+
     //execution de la fonction qui affiche le menu
     menudepart(prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
 
-    //initialisation du plateau de jeu
-    char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE];
-    //initialisation du plateau de jeu en fonction du nombre de joueur dans la partie
-
-    creationplateau(plateau, nombrejoueur);
-    //affiche le plateau de jeu en debut de partie et le nom des joueurs
-    affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
-
-    int joueurenmouvement =1; //variable comptant le joueur qui est en train de jouer
-    coordonnees coordonnees_b, coordonnees_b1, coordonnees_b2;
-    while (1) { /*Boucle gérant le tour des joueurs (pour l'instant infine car pas de code pour
-        la fin de la partie*/
-        do {
-            do {
-                printf("\n1. Deplacer le pion\n2. Poser une barriere\nChoisissez une valeur valide :");
-                scanf("%d", &mouvement_barriere);
-                if (mouvement_barriere==2) {
-                    nb_barriere1--;
-                }
-            } while ((mouvement_barriere!=1 && mouvement_barriere!=2));
-            if (mouvement_barriere==1) {
-                deplacementpion(plateau, joueurenmouvement); //deplacement du joueur en train de jouer
-                affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);//affichage du plateau apres chaque tour de joueur
-            }
-            if (mouvement_barriere==2) {
-                pose2(plateau, mouvement_barriere, coordonnees_b, coordonnees_b1, coordonnees_b2);
-                affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
-            }
-        } while (mouvement_barriere!=1 && mouvement_barriere!=2);
-
-        joueurenmouvement=joueurenmouvement+1; //passage au joueur suivant
-        if (joueurenmouvement>nombrejoueur) {
-            joueurenmouvement=1; //si la variable depasse le nombre de joueur alors on recommence un tourd
-        }
-        system("pause");
+    if(nombrejoueur==2){
+        tourjoueur=1+rand()%2;
+    }
+    else if(nombrejoueur==4){
+        tourjoueur=1+rand()%4;
     }
 
+    creationplateau(plateau, nombrejoueur);
+    affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
+
+    do{//infini pr l'instant
+        printf("\nAu tour du joueur %d\n", tourjoueur);
+        do {
+            printf("\n1. Deplacer le pion\n2. Poser une barriere\n3. Passer votre tour\nChoisissez une valeur valide :");
+            scanf("%d", &mouvement_barriere);
+            if (mouvement_barriere<'1'&&mouvement_barriere>'3') {
+                tourjoueur--;
+            }
+        } while (mouvement_barriere!=1 && mouvement_barriere!=2 && mouvement_barriere!=3);
+        if (mouvement_barriere==1) {
+            pion.ligne = 0;
+            pion.colonne = 0;
+            deplacementpion(plateau, pion);
+            affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
+        }
+        else if (mouvement_barriere==2) {
+            coordonnees_b.ligne = 0;
+            coordonnees_b.colonne = 0;
+            pose2(plateau, mouvement_barriere, coordonnees_b);
+            affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
+        }
+        tourjoueur++;
+        if (tourjoueur>nombrejoueur) {
+            tourjoueur=1;
+        }
+    }while(5);
+    return 0;
 }

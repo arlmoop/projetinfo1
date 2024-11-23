@@ -1,15 +1,14 @@
+
 //
 // Created by aurel on 02/11/2024.
 //
 
-#ifndef MOUVEMENTBARRIERE_H
-#define MOUVEMENTBARRIERE_H
+#ifndef MOUVEMENTPOINS_H
+#define MOUVEMENTPOINS_H
 
-typedef struct {
-    int ligne;
-    char colonne;
-}coordonnees;
-coordonnees pose_barriere (char tableau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], int mouvement_barriere, coordonnees coor_donnee);
-void pose2(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], int mouvement_barriere, coordonnees coordonnees_b,
-    coordonnees coordonnees_b1, coordonnees coordonnees_b2);
-#endif //MOUVEMENTBARRIERE_H
+#define TAILLEPLATEAUHORIZONTALE 51
+#define TAILLEPLATEAUVERTICALE 17
+void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], coordonnees pion);
+void pose2(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], int mouvement_barriere, coordonnees coordonnees_b);
+
+#endif //MOUVEMENTPOINS_H
