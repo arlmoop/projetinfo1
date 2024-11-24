@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #define TAILLEPLATEAUHORIZONTALE 51
 #define TAILLEPLATEAUVERTICALE 17
 #include "header.h"
@@ -7,7 +6,7 @@
 #include "mouvementpoins.h"
 #include "menu.h"
 //Mouvement du pion
-void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], coordonnees pion, char avatar[4], int tourjoueur, int *nombrejoueur, int victoire) {
+void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], coordonnees pion, char avatar[4], int tourjoueur) {
     //Compte les erreurs
     int errmouv;
     //Stocke la direction du mouvement

@@ -70,8 +70,7 @@ int main() {
         }
     }
     //On connait toutes les infos donc on peut afficher le plateau
-    affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur, avatar,
-        tourjoueur, reste1, reste2, reste3, reste4);
+    affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
     //Condition de victoire
     do {
 		if(tourjoueur==1) {

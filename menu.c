@@ -1,7 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <string.h>
 #define TAILLEPLATEAUHORIZONTALE 51
 #define TAILLEPLATEAUVERTICALE 17
 #include "header.h"
@@ -154,9 +151,8 @@ void creationplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
 }
 // sous programme affichant le tableau
 void affichageplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], char prenomjoueur1[], char prenomjoueur2[],
-    char prenomjoueur3[], char prenomjoueur4[], int *nombrejoueur, int tourjoueur, char avatar[4], int reste1, int reste2, int reste3, int reste4) {
-    int nombre_tour;
-    nombre_tour=tourjoueur;
+    char prenomjoueur3[], char prenomjoueur4[], int *nombrejoueur) {
+
     printf ("\n     A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q\n"); // les coordonnées des coonnes du plateau
     printf("    ___________________________________________________\n"); // les délimitations du plateau
     for (int e=0; e<TAILLEPLATEAUVERTICALE; e++) {
@@ -187,16 +183,5 @@ void affichageplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONT
     printf("   |___________________________________________________|\n");
     printf("     A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q\n\n");
 
-
-
-    if (nombre_tour == 1) {
-        printf("\n  Joueur 1 : %s", prenomjoueur1);
-    } else if (nombre_tour == 2) {
-        printf("\n  Joueur 2 : %s", prenomjoueur2);
-    } else if (nombre_tour == 3) {
-        printf("\n  Joueur 3 : %s", prenomjoueur3);
-    } else if (nombre_tour == 4) {
-        printf("\n  Joueur 4 : %s", prenomjoueur4);
-    }
 }
 

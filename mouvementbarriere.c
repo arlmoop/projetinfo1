@@ -111,5 +111,6 @@ void pose2(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], coord
     			}
     		}
 		}
+
 	} while (erreur>0);
 }

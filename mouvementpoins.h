@@ -8,9 +8,4 @@
 #define TAILLEPLATEAUHORIZONTALE 51
 #define TAILLEPLATEAUVERTICALE 17
 
-typedef struct {
-    int ligne;
-    char colonne;
-}joueur;
-
 #endif //MOUVEMENTPOINS_H
