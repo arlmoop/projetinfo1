@@ -16,7 +16,7 @@ int main() {
     int nombrejoueur;
     int mouvement_barriere, tourjoueur ;
     char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE];
-    coordonnees coordonnees_b, coordonnees_b1, coordonnees_b2, pion;
+    coordonnees coordonnees_b, coordonnees_b1, coordonnees_b2, pion, pion1, pion2, pion3, pion4;
 
     //execution de la fonction qui affiche le menu
     menudepart(prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
@@ -28,7 +28,17 @@ int main() {
         tourjoueur=1+rand()%4;
     }
 
-    creationplateau(plateau, nombrejoueur);
+    creationplateau(plateau, nombrejoueur, &pion1, &pion2, &pion3, &pion4 );
+    //pr verifier si c les bonnes coordonnees
+    printf("1: %d\n", pion1.ligne);
+    printf("1: %c\n", pion1.colonne);
+    printf("2: %d\n", pion2.ligne);
+    printf("2: %c\n", pion2.colonne);
+    printf("3: %d\n", pion3.ligne);
+    printf("3: %c\n", pion3.colonne);
+    printf("4: %d\n", pion4.ligne);
+    printf("4: %c\n", pion4.colonne);
+    
     affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
 
     do{//infini pr l'instant
