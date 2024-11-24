@@ -7,7 +7,7 @@
 #include "mouvementpoins.h"
 #include "menu.h"
 //Mouvement du pion
-void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], coordonnees pion, char avatar[4], int tourjoueur) {
+void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], coordonnees pion, char avatar[4], int tourjoueur, int *nombrejoueur, int victoire) {
     //Compte les erreurs
     int errmouv;
     //Stocke la direction du mouvement
@@ -18,7 +18,8 @@ void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
     int barchemin;
     //S'il y a un pion et une barriere, choisir dans quel sens bifurquer
     int bifurquer;
-    
+    //recuperation de la variable nombrejoueur pour gerer la fin de la partie
+
     do {
         pionchemin = 0;
         barchemin = 0;
@@ -97,7 +98,7 @@ void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
         if (pion.colonne == 'A' && mouvement == 1 || pion.colonne == 'Q' && mouvement == 2 || pion.ligne == 1 &&
             mouvement == 3 || pion.ligne == 17 && mouvement == 4) {
             errmouv++;
-        }
+            }
 
         //Barrière qui bloque
         if (mouvement == 1 && plateau[pion.ligne - 1][(pion.colonne - 'A') * 3 + 1 - 3] == '|') {
@@ -112,7 +113,7 @@ void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
         if (mouvement == 4 && plateau[pion.ligne - 1 + 1][(pion.colonne - 'A') * 3 + 1] == '-') {
             errmouv++;
         }
-    //Blindage saisie et erreur de mouvement
+        //Blindage saisie et erreur de mouvement
     } while (mouvement < 1 || mouvement > 4 || errmouv > 0);
     //Si la case est libre
     if (pionchemin == 0) {
@@ -140,7 +141,7 @@ void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
             plateau[pion.ligne - 1 + 2][(pion.colonne - 'A') * 3 + 1] = avatar[tourjoueur - 1];
             plateau[pion.ligne - 1][(pion.colonne - 'A') * 3 + 1] = '.';
         }
-    //Si un pion est sur le chemin
+        //Si un pion est sur le chemin
     } else {
         //Si il n'y a pas de barriere apres ce pion
         if (barchemin == 0) {
@@ -206,4 +207,22 @@ void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
             }
         }
     }
+
+    /*for (int i=0; i<TAILLEPLATEAUVERTICALE; i++) {
+        if (plateau[16][pion.colonne+i]==avatar[0]) {
+            victoire++;
+        }
+        if (plateau[0][pion.colonne+i]==avatar[1]) {
+            victoire++;
+        }
+    }
+    for(int i=0; i<TAILLEPLATEAUHORIZONTALE; i++) {
+        if ( plateau[pion.ligne+i][1]==avatar[2]) {
+            victoire++;
+        }
+        if ( plateau[pion.ligne+i][50]==avatar[3]) {
+            victoire++;
+        }
+    }*/
+
 }

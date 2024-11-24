@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
-
 #define TAILLEPLATEAUHORIZONTALE 51
 #define TAILLEPLATEAUVERTICALE 17
 #include "header.h"
@@ -156,7 +155,8 @@ void creationplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
 // sous programme affichant le tableau
 void affichageplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], char prenomjoueur1[], char prenomjoueur2[],
     char prenomjoueur3[], char prenomjoueur4[], int *nombrejoueur, int tourjoueur, char avatar[4], int reste1, int reste2, int reste3, int reste4) {
-
+    int nombre_tour;
+    nombre_tour=tourjoueur;
     printf ("\n     A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q\n"); // les coordonnées des coonnes du plateau
     printf("    ___________________________________________________\n"); // les délimitations du plateau
 
@@ -175,36 +175,15 @@ void affichageplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONT
 
     printf("   |___________________________________________________|\n");
     printf("     A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q\n\n");
-/*
-    if (tourjoueur == 1) {
+
+    if (nombre_tour == 1) {
         printf("\n  Joueur 1 : %s", prenomjoueur1);
-        printf("\n  Caractere : %s", avatar[0]);
-        printf("\n  Barriere :");
-        for (int i = 0; i < reste1; i++) {
-            printf(" |");
-        }
-    } else if (tourjoueur == 2) {
+    } else if (nombre_tour == 2) {
         printf("\n  Joueur 2 : %s", prenomjoueur2);
-        printf("\n  Caractere : %c", avatar[1]);
-        printf("\n  Barriere :");
-        for (int i = 0; i < reste2; i++) {
-            printf(" |");
-        }
-    } else if (tourjoueur == 3) {
+    } else if (nombre_tour == 3) {
         printf("\n  Joueur 3 : %s", prenomjoueur3);
-        printf("\n  Caractere : %c", avatar[2]); // Correction pour avatar[2]
-        printf("\n  Barriere :");
-        for (int i = 0; i < reste3; i++) {
-            printf(" |");
-        }
-    } else if (tourjoueur == 4) {
+    } else if (nombre_tour == 4) {
         printf("\n  Joueur 4 : %s", prenomjoueur4);
-        printf("\n  Caractere : %c", avatar[3]);
-        printf("\n  Barriere :");
-        for (int i = 0; i < reste4; i++) {
-            printf(" |");
-        }
-    }*/
-    //
+    }
 }
 
