@@ -11,7 +11,7 @@
 
 // Fonction pour vérifier si la case est valide et si elle est vide
 
-coordonnees pose_barriere (char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], int mouvement_barriere, coordonnees coordonnees_b) {
+coordonnees pose_barriere (char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], coordonnees coordonnees_b) {
 	do {
 		printf("\nChoisissez les coordonnees de l'emplacement de la barriere :");
 		getchar();
@@ -37,15 +37,15 @@ coordonnees pose_barriere (char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHOR
 	return coordonnees_b;
 }
 
-void pose2(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], int mouvement_barriere, coordonnees coordonnees_b) {
+void pose2(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], coordonnees coordonnees_b) {
 	coordonnees coordonnees_b1, coordonnees_b2;
 	int erreur;
 	do {
 		erreur=0;
 		printf("\nBarriere 1 :");
-		coordonnees_b1=pose_barriere(plateau, mouvement_barriere, coordonnees_b);
+		coordonnees_b1=pose_barriere(plateau, coordonnees_b);
 		printf("\nBarriere 2 :");
-		coordonnees_b2=pose_barriere(plateau, mouvement_barriere, coordonnees_b);
+		coordonnees_b2=pose_barriere(plateau, coordonnees_b);
 
 
         if((coordonnees_b1.ligne!=coordonnees_b2.ligne) && (coordonnees_b1.colonne!=coordonnees_b2.colonne)){

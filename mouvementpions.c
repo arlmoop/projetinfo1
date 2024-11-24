@@ -13,29 +13,30 @@ void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
     //Stocke la direction du mouvement
     int mouvement;
     //Y a-t-il un pion sur la trajectoire du joueur
-    int pionchemin;
+    int pion_chemin;
     //Y a-t-il une barriere derriere le pion a sauter
-    int barchemin;
+    int barriere_chemin;
     //S'il y a un pion et une barriere, choisir dans quel sens bifurquer
     int bifurquer;
     //recuperation de la variable nombrejoueur pour gerer la fin de la partie
 
     do {
-        pionchemin = 0;
-        barchemin = 0;
+        //initialisation des variables
+        pion_chemin = 0;
+        barriere_chemin = 0;
         errmouv = 0;
 
-        printf("Saisissez une direction valide :\n1 gauche 2 droite 3 haut 4 bas\n");
-        scanf("%d", &mouvement);
+        printf("Saisissez une direction valide :\n1 gauche 2 droite 3 haut 4 bas\n");//affichage du menu dans la console
+        scanf("%d", &mouvement);//recuperation du choix du joueur dans la variable mouvement
         //On cherche les coordonnes du pion en fonction du tour du joueur
-        for (int i = 0; i < TAILLEPLATEAUVERTICALE; i++) {
-            for (int j = 0; j < TAILLEPLATEAUHORIZONTALE; j++) {
+        for (int i=0; i<TAILLEPLATEAUVERTICALE; i++) {
+            for (int j=0; j<TAILLEPLATEAUHORIZONTALE; j++) {
                 for (int t = 0; t < 4; t++) {
-                    if (tourjoueur == t + 1) {
+                    if (tourjoueur == t + 1) {//utilisation d'une variable t pour changer le caractere du joueur
                         if (plateau[i][j] == avatar[t]) {
                             //Conversions pour passer d'une case de caractere à une coordonnée du plateau(case jouable)
-                            pion.ligne = i + 1;
-                            pion.colonne = (j - 1) / 3 + 'A';
+                            pion.ligne=i+1;
+                            pion.colonne=(j-1)/3+'A';
                         }
                     }
                 }
@@ -49,80 +50,80 @@ void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
             if (plateau[pion.ligne - 1][(pion.colonne - 'A') * 3 + 1 - 9] == '|') {
                 //Demander où le joueur veut bifurquer
                 do {
-                    printf("3 : Aller au dessus du pion\n4 : Aller en dessous du pion");
-                    scanf("%d", &bifurquer);
-                } while (bifurquer != 3 && bifurquer != 4);
-                barchemin++;
+                    printf("3 : Aller au dessus du pion\n4 : Aller en dessous du pion");//menu lors d'une bifurquation devant une barriere
+                    scanf("%d", &bifurquer);// recuperation du choix du joueur
+                } while (bifurquer != 3 && bifurquer != 4);//blindage pour recuperer une valeur valide
+                barriere_chemin++;//on signale qu'il y a une barriere apres le saut d'un pion d'un joueur
             }
-            pionchemin++;
+            pion_chemin++;//on signale qu'il y a pion sur le chemin emprunte par le joueur
         }
         //Si la case jouable a droite n'est pas un poin (donc est un pion)
         if (mouvement == 2 && plateau[pion.ligne - 1][(pion.colonne - 'A') * 3 + 1 + 6] != '.') {
             //Si la case non-jouable à droite du pion à sauter est une barriere
-            if (plateau[pion.ligne - 1][(pion.colonne - 'A') * 3 + 1 + 9] == '|') {
+            if (plateau[pion.ligne-1][(pion.colonne-'A')*3+1+9]=='|') {
                 //Demander où le joueur veut bifurquer
                 do {
-                    printf("3 : Aller au dessus du pion\n4 : Aller en dessous du pion");
-                    scanf("%d", &bifurquer);
-                } while (bifurquer != 3 && bifurquer != 4);
-                barchemin++;
+                    printf("3 : Aller au dessus du pion\n4 : Aller en dessous du pion");//menu lors d'une bifurquation devant une barriere
+                    scanf("%d", &bifurquer);// recuperation du choix du joueur
+                } while (bifurquer!=3&& bifurquer!=4);//blindage pour recuperer une valeur valide
+                barriere_chemin++;//on signale qu'il y a une barriere apres le saut d'un pion d'un joueur
             }
-            pionchemin++;
+            pion_chemin++;//on signale qu'il y a pion sur le chemin emprunte par le joueur
         }
         //Meme chose pour un mouvement haut
-        if (mouvement == 3 && plateau[pion.ligne - 1 - 2][(pion.colonne - 'A') * 3 + 1] != '.') {
+        if (mouvement==3 && plateau[pion.ligne-1-2][(pion.colonne-'A')*3+1]!='.') {
             //Meme chose pour un mouvement haut
-            if (plateau[pion.ligne - 1 - 3][(pion.colonne - 'A') * 3 + 1] == '-') {
+            if (plateau[pion.ligne-1-3][(pion.colonne-'A')*3+1]=='-') {
                 //Bifurquer a droite ou a gauche
                 do {
-                    printf("1 : Aller  gauche du pion\n2 : Aller a droite du pion");
-                    scanf("%d", &bifurquer);
-                } while (bifurquer != 1 && bifurquer != 2);
-                barchemin++;
+                    printf("1 : Aller  gauche du pion\n2 : Aller a droite du pion");//menu lors d'une bifurquation devant une barriere
+                    scanf("%d", &bifurquer);// recuperation du choix du joueur
+                } while (bifurquer != 1 && bifurquer != 2);//blindage pour recuperer une valeur valide
+                barriere_chemin++;//on signale qu'il y a une barriere apres le saut d'un pion d'un joueur
             }
-            pionchemin++;
+            pion_chemin++;//on signale qu'il y a pion sur le chemin emprunte par le joueur
         }
         //Meme chose pour un mouvement bas
-        if (mouvement == 4 && plateau[pion.ligne - 1 + 2][(pion.colonne - 'A') * 3 + 1] != '.') {
-            if (plateau[pion.ligne - 1 + 3][(pion.colonne - 'A') * 3 + 1] == '-') {
+        if (mouvement==4&&plateau[pion.ligne-1+2][(pion.colonne-'A')*3+1]!='.') {
+            if (plateau[pion.ligne-1+3][(pion.colonne-'A')*3+1]=='-') {
                 do {
-                    printf("1 : Aller  gauche du pion\n2 : Aller a droite du pion");
-                    scanf("%d", &bifurquer);
-                } while (bifurquer != 1 && bifurquer != 2);
-                barchemin++;
+                    printf("1 : Aller  gauche du pion\n2 : Aller a droite du pion");//menu lors d'une bifurquation devant une barriere
+                    scanf("%d", &bifurquer);// recuperation du choix du joueur
+                } while (bifurquer != 1 && bifurquer != 2);//blindage pour recuperer une valeur valide
+                barriere_chemin++;//on signale qu'il y a une barriere apres le saut d'un pion d'un joueur
             }
-            pionchemin++;
+            pion_chemin++;//on signale qu'il y a pion sur le chemin emprunte par le joueur
         }
 
         //Sortie du plateau
         if (pion.colonne == 'A' && mouvement == 1 || pion.colonne == 'Q' && mouvement == 2 || pion.ligne == 1 &&
             mouvement == 3 || pion.ligne == 17 && mouvement == 4) {
-            errmouv++;
+            errmouv++;//creation d'une erreur
             }
 
         //Barrière qui bloque
-        if (mouvement == 1 && plateau[pion.ligne - 1][(pion.colonne - 'A') * 3 + 1 - 3] == '|') {
-            errmouv++;
+        if (mouvement == 1 && plateau[pion.ligne-1][(pion.colonne-'A')*3+1-3]=='|') {
+            errmouv++;//creation d'une erreur
         }
-        if (mouvement == 2 && plateau[pion.ligne - 1][(pion.colonne - 'A') * 3 + 1 + 3] == '|') {
-            errmouv++;
+        if (mouvement == 2 && plateau[pion.ligne-1][(pion.colonne-'A')*3+1+3]=='|') {
+            errmouv++;//creation d'une erreur
         }
-        if (mouvement == 3 && plateau[pion.ligne - 1 - 1][(pion.colonne - 'A') * 3 + 1] == '-') {
-            errmouv++;
+        if (mouvement == 3 && plateau[pion.ligne-1-1][(pion.colonne-'A')*3+1]=='-') {
+            errmouv++;//creation d'une erreur
         }
-        if (mouvement == 4 && plateau[pion.ligne - 1 + 1][(pion.colonne - 'A') * 3 + 1] == '-') {
-            errmouv++;
+        if (mouvement == 4 && plateau[pion.ligne-1+1][(pion.colonne-'A')*3+1]=='-') {
+            errmouv++;//creation d'une erreur
         }
         //Blindage saisie et erreur de mouvement
-    } while (mouvement < 1 || mouvement > 4 || errmouv > 0);
+    } while (mouvement<1 || mouvement>4 || errmouv>0);
     //Si la case est libre
-    if (pionchemin == 0) {
+    if (pion_chemin == 0) {
         //Gauche
-        if (mouvement == 1) {
+        if (mouvement==1) {
             //Déplacement du pion de 6 caractères vers la gauche(->2 colonnes quelconques(->1 colonne jouable))
-            plateau[pion.ligne - 1][(pion.colonne - 'A') * 3 + 1 - 6] = avatar[tourjoueur - 1];
+            plateau[pion.ligne-1][(pion.colonne-'A')*3+1-6]=avatar[tourjoueur-1];
             //Reformer la case de depart
-            plateau[pion.ligne - 1][(pion.colonne - 'A') * 3 + 1] = '.';
+            plateau[pion.ligne-1][(pion.colonne-'A')*3+1]='.';
         }
         //Droite
         if (mouvement == 2) {
@@ -144,7 +145,7 @@ void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
         //Si un pion est sur le chemin
     } else {
         //Si il n'y a pas de barriere apres ce pion
-        if (barchemin == 0) {
+        if (barriere_chemin == 0) {
             //Deplacement du joueur de 2 cases (gauche et droite->12 caracteres, haut et bas-> 4 caractères)
             if (mouvement == 1) {
                 plateau[pion.ligne - 1][(pion.colonne - 'A') * 3 + 1 - 12] = avatar[tourjoueur - 1];
@@ -207,22 +208,4 @@ void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
             }
         }
     }
-
-    /*for (int i=0; i<TAILLEPLATEAUVERTICALE; i++) {
-        if (plateau[16][pion.colonne+i]==avatar[0]) {
-            victoire++;
-        }
-        if (plateau[0][pion.colonne+i]==avatar[1]) {
-            victoire++;
-        }
-    }
-    for(int i=0; i<TAILLEPLATEAUHORIZONTALE; i++) {
-        if ( plateau[pion.ligne+i][1]==avatar[2]) {
-            victoire++;
-        }
-        if ( plateau[pion.ligne+i][50]==avatar[3]) {
-            victoire++;
-        }
-    }*/
-
 }

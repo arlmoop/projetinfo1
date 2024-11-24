@@ -115,8 +115,7 @@ int main() {
             tourjoueur=1;
         }
 
-
     }while(victoire<=0);//Condtion de victoire
-    printf("LE JOUEUR %d A GAGNE LA PARTIE", tourjoueur);
+    printf("LE JOUEUR %d A GAGNE LA PARTIE", tourjoueur-1);
     return 0;
 }
