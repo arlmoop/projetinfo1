@@ -11,19 +11,21 @@
 int main() {
 
     srand(time(NULL));
-    //creation des variables pour le prenom des joueurs
-    char prenomjoueur1[20], prenomjoueur2[20], prenomjoueur3[20], prenomjoueur4[20];
-    int nombrejoueur;
+    //creation des variables pour le prenom des joueurs et du plateau
+    char prenomjoueur1[20], prenomjoueur2[20], prenomjoueur3[20], prenomjoueur4[20], plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE];
+    //mouvement_barriere gere l'action faite par le joueur
+    int nombrejoueur,mouvement_barriere, tourjoueur=0;
+    // 4 cases pour 4 joueurs
     char avatar[4];
-    int mouvement_barriere, tourjoueur=0;
-    char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE];
+    //Structures gerants les barrieres et les pions
     coordonnees coordonnees_b, coordonnees_b1, coordonnees_b2, pion, pion1, pion2, pion3, pion4;
+    //Barrieres restantes
     int reste1=0, reste2=0, reste3=0, reste4=0;
-
 
     //execution de la fonction qui affiche le menu
     menudepart(prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur, avatar);
 
+    //Combien de barrieres chacun
     if(nombrejoueur==2){
         reste1=10;
         reste2=10;
@@ -34,16 +36,16 @@ int main() {
         reste3=5;
         reste4=5;
     }
-
+    //Qui commence ?
     if(nombrejoueur==2){
         tourjoueur=1+rand()%2;
     }
     else if(nombrejoueur==4){
         tourjoueur=1+rand()%4;
     }
-
+    
     creationplateau(plateau, nombrejoueur, &pion1, &pion2, &pion3, &pion4, avatar);
-    //pr verifier si c les bonnes coordonnees
+    //Verification des coordonnes
     if(nombrejoueur>=2){
         printf("\nCoordoonnees :\n");
         printf("1: %c", pion1.colonne);
@@ -57,7 +59,7 @@ int main() {
             printf(" %d\n", pion4.ligne);
         }
     }
-
+    //Verification des pions
     if(nombrejoueur>=2){
         printf("\nPions :\n");
         printf("1 : %c\n", avatar[0]);
