@@ -49,15 +49,13 @@ coordonnees pose_barriere (char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHOR
 
 void pose2(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], int mouvement_barriere, coordonnees coordonnees_b) {
   coordonnees coordonnees_b1, coordonnees_b2;
-  int ligne_diff;
-  int colonne_diff;
-  int erreur=0;
+  int ligne_diff, colonne_diff, erreur;
   do {
     erreur=0;
+    printf("\nBarriere 1 :");
     coordonnees_b1 = pose_barriere(plateau, mouvement_barriere, coordonnees_b);
+    printf("\nBarriere 2 :");
     coordonnees_b2 = pose_barriere(plateau, mouvement_barriere, coordonnees_b);
-
-
 
     ligne_diff = coordonnees_b1.ligne - coordonnees_b2.ligne;
     colonne_diff = coordonnees_b1.colonne - coordonnees_b2.colonne;
