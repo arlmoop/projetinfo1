@@ -7,7 +7,7 @@
 #include "mouvementpoins.h"
 #define TAILLEPLATEAUHORIZONTALE 51
 #define TAILLEPLATEAUVERTICALE 17
-
+/////::dcfzv
 int main() {
     srand(time(NULL));
     //creation des variables pour le prenom des joueurs et du plateau
