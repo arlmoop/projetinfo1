@@ -159,20 +159,31 @@ void affichageplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONT
     nombre_tour=tourjoueur;
     printf ("\n     A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q\n"); // les coordonnées des coonnes du plateau
     printf("    ___________________________________________________\n"); // les délimitations du plateau
-
     for (int e=0; e<TAILLEPLATEAUVERTICALE; e++) {
-        if (e<9) {
-            printf(" %d |", e+1);
-        } else {
-            printf("%d |", e+1);//coordonnees des lignes
-        }
-        for (int f=0; f<TAILLEPLATEAUHORIZONTALE; f++) {
-            printf("%c", plateau[e][f]);
-        }
-        printf("| %d  ", e+1);
-        printf("\n");
-    }
-
+		if(e<9) {
+			printf(" %d |", e+1);
+		}
+		else {
+			printf("%d |", e+1);
+		}
+		for (int f=0; f<TAILLEPLATEAUHORIZONTALE; f++) {
+			printf("%c", plateau[e][f]);
+		}
+		printf("| %d  ", e+1);
+		if (e==1) {
+			printf("  Joueur 1 : %s", prenomjoueur1);
+		}
+		if (e==4) {
+			printf("  Joueur 2 : %s", prenomjoueur2);
+		}
+		if (e==7 && *nombrejoueur==4) {
+			printf("  Joueur 3 : %s", prenomjoueur3);
+		}
+		if (e==10 && *nombrejoueur==4) {
+			printf(" Joueur 4 : %s", prenomjoueur4);
+		}
+		printf("\n");
+	}
     printf("   |___________________________________________________|\n");
     printf("     A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q\n\n");
 
