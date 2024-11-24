@@ -9,13 +9,12 @@
 
 void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], coordonnees pion, char avatar[4], int tourjoueur) {
   //faut definir les coordonnees de depart
-  int sauvegarde_ligne;
-  char sauvegarde_colonne;
-  int errmouv=0;
+  int errmouv;
   int mouvement;
   int pionchemin=0;
   char caracterejoueur;
   do {
+    errmouv=0;
     printf("Saisissez une dirction valide :\n1 gauche 2 droite 3 haut 4 bas\n");
     scanf("%d", &mouvement);
     //pion puis barriere
