@@ -96,8 +96,8 @@ void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
         }
 
         //Sortie du plateau
-        if (pion.colonne == 'A' && mouvement == 1 || pion.colonne == 'Q' && mouvement == 2 || pion.ligne == 1 &&
-            mouvement == 3 || pion.ligne == 17 && mouvement == 4) {
+        if (pion.colonne=='A' && mouvement==1 || pion.colonne=='Q' && mouvement==2 || pion.ligne==1 &&
+            mouvement==3 || pion.ligne==17 && mouvement==4) {
             errmouv++;//creation d'une erreur
             }
 
@@ -128,82 +128,82 @@ void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
         //Droite
         if (mouvement == 2) {
             //Pareil a droite
-            plateau[pion.ligne - 1][(pion.colonne - 'A') * 3 + 1 + 6] = avatar[tourjoueur - 1];
-            plateau[pion.ligne - 1][(pion.colonne - 'A') * 3 + 1] = '.';
+            plateau[pion.ligne-1][(pion.colonne-'A')*3+1+6] = avatar[tourjoueur-1];
+            plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';
         }
         //Haut
         if (mouvement == 3) {
             //2 caractères au-dessus(->2 lignes quelconques(->1 ligne jouable))
-            plateau[pion.ligne - 1 - 2][(pion.colonne - 'A') * 3 + 1] = avatar[tourjoueur - 1];
-            plateau[pion.ligne - 1][(pion.colonne - 'A') * 3 + 1] = '.';
+            plateau[pion.ligne-1-2][(pion.colonne-'A')*3+1] = avatar[tourjoueur-1];
+            plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';
         }
         //Pareil en bas
         if (mouvement == 4) {
-            plateau[pion.ligne - 1 + 2][(pion.colonne - 'A') * 3 + 1] = avatar[tourjoueur - 1];
-            plateau[pion.ligne - 1][(pion.colonne - 'A') * 3 + 1] = '.';
+            plateau[pion.ligne-1+2][(pion.colonne-'A')*3+1] = avatar[tourjoueur-1];
+            plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';
         }
         //Si un pion est sur le chemin
     } else {
         //Si il n'y a pas de barriere apres ce pion
-        if (barriere_chemin == 0) {
+        if (barriere_chemin==0) {
             //Deplacement du joueur de 2 cases (gauche et droite->12 caracteres, haut et bas-> 4 caractères)
-            if (mouvement == 1) {
-                plateau[pion.ligne - 1][(pion.colonne - 'A') * 3 + 1 - 12] = avatar[tourjoueur - 1];
-                plateau[pion.ligne - 1][(pion.colonne - 'A') * 3 + 1] = '.';
+            if (mouvement==1) {
+                plateau[pion.ligne-1][(pion.colonne-'A')*3+1-12] = avatar[tourjoueur-1];
+                plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';
             }
             if (mouvement == 2) {
-                plateau[pion.ligne - 1][(pion.colonne - 'A') * 3 + 1 + 12] = avatar[tourjoueur - 1];
-                plateau[pion.ligne - 1][(pion.colonne - 'A') * 3 + 1] = '.';
+                plateau[pion.ligne-1][(pion.colonne-'A')*3+1+12] = avatar[tourjoueur-1];
+                plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';
             }
             if (mouvement == 3) {
-                plateau[pion.ligne - 1 - 4][(pion.colonne - 'A') * 3 + 1] = avatar[tourjoueur - 1];
-                plateau[pion.ligne - 1][(pion.colonne - 'A') * 3 + 1] = '.';
+                plateau[pion.ligne-1-4][(pion.colonne-'A')*3+1] = avatar[tourjoueur-1];
+                plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';
             }
             if (mouvement == 4) {
-                plateau[pion.ligne - 1 + 4][(pion.colonne - 'A') * 3 + 1] = avatar[tourjoueur - 1];
-                plateau[pion.ligne - 1][(pion.colonne - 'A') * 3 + 1] = '.';
+                plateau[pion.ligne-1+4][(pion.colonne-'A')*3+1] = avatar[tourjoueur-1];
+                plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';
             }
             //S'il y a une barriere apres ce pion
         } else {
             //En fonction de la direction de la bifurcation, le pion est deplacé d'une ligne et d'une colonne
             if (mouvement == 1) {
                 if (bifurquer == 3) {
-                    plateau[pion.ligne - 1 - 2][(pion.colonne - 'A') * 3 + 1 - 6] = avatar[tourjoueur - 1];
-                    plateau[pion.ligne - 1][(pion.colonne - 'A') * 3 + 1] = '.';
+                    plateau[pion.ligne-1-2][(pion.colonne-'A')*3+1-6] = avatar[tourjoueur-1];
+                    plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';
                 }
                 if (bifurquer == 4) {
-                    plateau[pion.ligne - 1 + 2][(pion.colonne - 'A') * 3 + 1 - 6] = avatar[tourjoueur - 1];
-                    plateau[pion.ligne - 1][(pion.colonne - 'A') * 3 + 1] = '.';
+                    plateau[pion.ligne-1+2][(pion.colonne-'A')*3+1-6] = avatar[tourjoueur-1];
+                    plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';
                 }
             }
             if (mouvement == 2) {
                 if (bifurquer == 3) {
-                    plateau[pion.ligne - 1 - 2][(pion.colonne - 'A') * 3 + 1 + 6] = avatar[tourjoueur - 1];
-                    plateau[pion.ligne - 1][(pion.colonne - 'A') * 3 + 1] = '.';
+                    plateau[pion.ligne-1-2][(pion.colonne-'A')*3+1+6] = avatar[tourjoueur-1];
+                    plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';
                 }
                 if (bifurquer == 4) {
-                    plateau[pion.ligne - 1 + 2][(pion.colonne - 'A') * 3 + 1 + 6] = avatar[tourjoueur - 1];
-                    plateau[pion.ligne - 1][(pion.colonne - 'A') * 3 + 1] = '.';
+                    plateau[pion.ligne-1+2][(pion.colonne-'A')*3+1+6] = avatar[tourjoueur-1];
+                    plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';
                 }
             }
             if (mouvement == 3) {
                 if (bifurquer == 1) {
-                    plateau[pion.ligne - 1 - 2][(pion.colonne - 'A') * 3 + 1 - 6] = avatar[tourjoueur - 1];
-                    plateau[pion.ligne - 1][(pion.colonne - 'A') * 3 + 1] = '.';
+                    plateau[pion.ligne-1-2][(pion.colonne-'A')*3+1-6] = avatar[tourjoueur-1];
+                    plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';
                 }
                 if (bifurquer == 2) {
-                    plateau[pion.ligne - 1 - 2][(pion.colonne - 'A') * 3 + 1 + 6] = avatar[tourjoueur - 1];
-                    plateau[pion.ligne - 1][(pion.colonne - 'A') * 3 + 1] = '.';
+                    plateau[pion.ligne-1-2][(pion.colonne-'A')*3+1+6] = avatar[tourjoueur-1];
+                    plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';
                 }
             }
             if (mouvement == 4) {
                 if (bifurquer == 1) {
-                    plateau[pion.ligne - 1 + 2][(pion.colonne - 'A') * 3 + 1 - 6] = avatar[tourjoueur - 1];
-                    plateau[pion.ligne - 1][(pion.colonne - 'A') * 3 + 1] = '.';
+                    plateau[pion.ligne-1+2][(pion.colonne-'A')*3+1-6] = avatar[tourjoueur-1];
+                    plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';
                 }
                 if (bifurquer == 2) {
-                    plateau[pion.ligne - 1 + 2][(pion.colonne - 'A') * 3 + 1 + 6] = avatar[tourjoueur - 1];
-                    plateau[pion.ligne - 1][(pion.colonne - 'A') * 3 + 1] = '.';
+                    plateau[pion.ligne-1+2][(pion.colonne-'A')*3+1+6] = avatar[tourjoueur-1];
+                    plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';
                 }
             }
         }
