@@ -21,7 +21,7 @@ int main() {
     //Barrieres restantes
     int reste1=0, reste2=0, reste3=0, reste4=0;
     //Variable qui lorsqu'elle devient positive un joueur a gagne la partie
-    int victoire=0;
+    int vj=0;
     //execution de la fonction qui affiche le menu
     menudepart(prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur, avatar);
 
@@ -73,49 +73,117 @@ int main() {
     affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur, avatar,
         tourjoueur, reste1, reste2, reste3, reste4);
     //Condition de victoire
-    do{
-        //Saisie valide
+    do {
+		if(tourjoueur==1) {
+			printf("\nAu tour de %s\n", prenomjoueur1);
+			printf("Il vous reste %d barrieres\n", reste1);
+			if(reste1>0) {
+				do {
+					printf("\n1. Deplacer le pion\n2. Poser une barriere\n3. Passer votre tour\nChoisissez une valeur valide :");
+					scanf("%d", &mouvement_barriere);
+				} while (mouvement_barriere!=1 && mouvement_barriere!=2 && mouvement_barriere!=3);
+			}
+			else {
+				do {
+					printf("\n1. Deplacer le pion\n3. Passer votre tour\nChoisissez une valeur valide :");
+					scanf("%d", &mouvement_barriere);
+				} while (mouvement_barriere!=1 && mouvement_barriere!=3);
+			}
+		}
+		else if(tourjoueur==2) {
+			printf("\nAu tour de %s\n", prenomjoueur2);
+			printf("Il vous reste %d barrieres\n", reste2);
+			if(reste2>0) {
+				do {
+					printf("\n1. Deplacer le pion\n2. Poser une barriere\n3. Passer votre tour\nChoisissez une valeur valide :");
+					scanf("%d", &mouvement_barriere);
+				} while (mouvement_barriere!=1 && mouvement_barriere!=2 && mouvement_barriere!=3);
+			}
+			else {
+				do {
+					printf("\n1. Deplacer le pion\n3. Passer votre tour\nChoisissez une valeur valide :");
+					scanf("%d", &mouvement_barriere);
+				} while (mouvement_barriere!=1 && mouvement_barriere!=3);
+			}
+		}
+		else if(tourjoueur==3) {
+			printf("\nAu tour de %s\n", prenomjoueur3);
+			printf("Il vous reste %d barrieres\n", reste3);
+			if(reste3>0) {
+				do {
+					printf("\n1. Deplacer le pion\n2. Poser une barriere\n3. Passer votre tour\nChoisissez une valeur valide :");
+					scanf("%d", &mouvement_barriere);
+				} while (mouvement_barriere!=1 && mouvement_barriere!=2 && mouvement_barriere!=3);
+			}
+			else {
+				do {
+					printf("\n1. Deplacer le pion\n3. Passer votre tour\nChoisissez une valeur valide :");
+					scanf("%d", &mouvement_barriere);
+				} while (mouvement_barriere!=1 && mouvement_barriere!=3);
+			}
+		}
+		else if(tourjoueur==4) {
+			printf("\nAu tour de %s\n", prenomjoueur4);
+			printf("Il vous reste %d barrieres\n", reste4);
+			if(reste4>0) {
+				do {
+					printf("\n1. Deplacer le pion\n2. Poser une barriere\n3. Passer votre tour\nChoisissez une valeur valide :");
+					scanf("%d", &mouvement_barriere);
+				} while (mouvement_barriere!=1 && mouvement_barriere!=2 && mouvement_barriere!=3);
+			}
+			else {
+				do {
+					printf("\n1. Deplacer le pion\n3. Passer votre tour\nChoisissez une valeur valide :");
+					scanf("%d", &mouvement_barriere);
+				} while (mouvement_barriere!=1 && mouvement_barriere!=3);
+			}
+		}
+		if (mouvement_barriere==1) {
+			pion.ligne = 0;
+			pion.colonne = 0;
+			deplacementpion(plateau, pion, avatar, tourjoueur);
+			affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
+		}
+		else if (mouvement_barriere==2) {
+			coordonnees_b.ligne = 0;
+			coordonnees_b.colonne = 0;
+			pose2(plateau, coordonnees_b);
+			if(tourjoueur==1) {
+				reste1--;
+			}
+			else if(tourjoueur==2) {
+				reste2--;
+			}
+			else if(tourjoueur==3) {
+				reste3--;
+			}
+			else if(tourjoueur==4) {
+				reste4--;
+			}
+			affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
+		}
+		tourjoueur++;
+		if (tourjoueur>nombrejoueur) {
+			tourjoueur=1;
+		}
 
-        do {
-            printf("\n1. Deplacer le pion\n2. Poser une barriere\n3. Passer votre tour\nChoisissez une valeur valide :");
-            scanf("%d", &mouvement_barriere);
-        } while (mouvement_barriere!=1 && mouvement_barriere!=2 && mouvement_barriere!=3);
-        //Le joueur a choisi de se deplacer
-        if (mouvement_barriere==1) {
-            pion.ligne = 0;
-            pion.colonne = 0;
-            deplacementpion(plateau, pion, avatar, tourjoueur, &nombrejoueur, victoire);
-        }
-        //Le joueur a choisi de poser une barriere
-        else if (mouvement_barriere==2) {
-            coordonnees_b.ligne = 0;
-            coordonnees_b.colonne = 0;
-            //Pose de barriere
-            pose2(plateau, mouvement_barriere, coordonnees_b);
-            //Enlever une barriere au joueur
-            if(tourjoueur==1){
-                reste1--;
-            }
-            else if(tourjoueur==2){
-                reste2--;
-            }
-            else if(tourjoueur==3){
-                reste3--;
-            }
-            else if(tourjoueur==4){
-                reste4--;
-            }
-        }
-        //Afficher la plateau apres chaque tour
-        affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur, reste1, reste2, reste3, reste4, tourjoueur, avatar);
-        //Passer au joueur suivant
-        tourjoueur++;
-        //Revenir au joueur 1 quand on atteint le dernier joueur
-        if (tourjoueur>nombrejoueur) {
-            tourjoueur=1;
-        }
-
-    }while(victoire<=0);//Condtion de victoire
+		for(int i=0; i<51; i++) {
+			if(plateau[TAILLEPLATEAUVERTICALE-1][i]==avatar[0]) {
+				vj++;
+			}
+			if(plateau[0][i]==avatar[1]) {
+				vj++;
+			}
+		}
+		for(int i=0; i<17; i++) {
+			if(plateau[i][TAILLEPLATEAUHORIZONTALE-1]==avatar[2]) {
+				vj++;
+			}
+			if(plateau[i][1]==avatar[3]) {
+				vj++;
+			}
+		}
+	} while(vj<1);
     printf("LE JOUEUR %d A GAGNE LA PARTIE", tourjoueur-1);
     return 0;
 }
