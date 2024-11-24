@@ -43,7 +43,7 @@ coordonnees pose_barriere (char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHOR
     } while ( (coordonnees_b.ligne-1)%2==1 && (coordonnees_b.colonne-'A')%2==1
       || (coordonnees_b.ligne-1)%2==0 && (coordonnees_b.colonne-'A')%2==0
       || coordonnees_b.ligne<1 || coordonnees_b.ligne>17 || coordonnees_b.colonne<'A' || coordonnees_b.colonne>'Q');
-    printf("coord : %d %d\n", coordonnees_b.colonne-'A', coordonnees_b.ligne);
+    printf("Coordonnees choisies : %d %d\n", coordonnees_b.colonne-'A', coordonnees_b.ligne);
     return coordonnees_b;
 }
 
