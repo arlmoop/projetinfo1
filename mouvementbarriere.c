@@ -22,7 +22,6 @@ coordonnees pose_barriere (char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHOR
           printf("\nERREUR : Veuillez saisir une coordonnee possible");
         }
       } while (coordonnees_b.colonne<'A' || coordonnees_b.colonne>'Z' || coordonnees_b.ligne<1 || coordonnees_b.ligne>17);
-      printf("coord : %d %d\n", coordonnees_b.colonne-'A', coordonnees_b.ligne);
       if((coordonnees_b.ligne-1)%2==1) {
         if((coordonnees_b.colonne-'A')%2==0) {
           plateau[coordonnees_b.ligne-1][(coordonnees_b.colonne-'A')*3]='-';
@@ -44,6 +43,7 @@ coordonnees pose_barriere (char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHOR
     } while ( (coordonnees_b.ligne-1)%2==1 && (coordonnees_b.colonne-'A')%2==1
       || (coordonnees_b.ligne-1)%2==0 && (coordonnees_b.colonne-'A')%2==0
       || coordonnees_b.ligne<1 || coordonnees_b.ligne>17 || coordonnees_b.colonne<'A' || coordonnees_b.colonne>'Q');
+    printf("coord : %d %d\n", coordonnees_b.colonne-'A', coordonnees_b.ligne);
     return coordonnees_b;
 }
 
