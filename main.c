@@ -32,7 +32,18 @@ int main() {
     affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
 
     do{//infini pr l'instant
-        printf("\nAu tour du joueur %d\n", tourjoueur);
+        if(tourjoueur==1){
+            printf("\nAu tour de %s\n", prenomjoueur1);
+        }
+        else if(tourjoueur==2){
+            printf("\nAu tour de %s\n", prenomjoueur2);
+        }
+        else if(tourjoueur==3){
+            printf("\nAu tour de %s\n", prenomjoueur3);
+        }
+        else if(tourjoueur==4){
+            printf("\nAu tour de %s\n", prenomjoueur4);
+        }
         do {
             printf("\n1. Deplacer le pion\n2. Poser une barriere\n3. Passer votre tour\nChoisissez une valeur valide :");
             scanf("%d", &mouvement_barriere);
