@@ -140,7 +140,7 @@ void creationplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
 void affichageplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], char prenomjoueur1[], char prenomjoueur2[],
     char prenomjoueur3[], char prenomjoueur4[], int *nombrejoueur) {
 
-  printf ("\n\n     A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q\n");//les coordonnées des cases du plateau
+  printf ("\n     A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q\n");//les coordonnées des cases du plateau
   printf("    ___________________________________________________\n");//les delimitations du plateau
 
   for (int e=0; e<TAILLEPLATEAUVERTICALE; e++) {
