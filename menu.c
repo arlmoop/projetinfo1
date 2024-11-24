@@ -4,7 +4,7 @@
 #define TAILLEPLATEAUHORIZONTALE 51
 #define TAILLEPLATEAUVERTICALE 17
 
-void menudepart (char prenomjoueur1[], char prenomjoueur2[], char prenomjoueur3[], char prenomjoueur4[], int *nombrejoueur) {
+void menudepart (char prenomjoueur1[], char prenomjoueur2[], char prenomjoueur3[], char prenomjoueur4[], int *nombrejoueur, char *av1, char *av2, char *av3, char *av4) {
     int c;
     printf("BIENVENUE DANS LE JEU DU QUORIDOR\n\n");
     do{
@@ -32,19 +32,35 @@ void menudepart (char prenomjoueur1[], char prenomjoueur2[], char prenomjoueur3[
     if (*nombrejoueur >= 2) { // test pour demander au 2 joueurs leurs prenoms
         printf("Entrez le prenom du joueur 1 :\n"); //demandes a l'utilisateur de rentrer le prenom du joueur
         scanf("%s", prenomjoueur1);//recuperation du prenom du joueur dans le tableau
+        getchar();
+        printf("Joueur 1, choisissez votre pion en entrant un unique caractere :\n");
+        scanf("%c", av1);
+        getchar();
         printf("Entrez le prenom du joueur 2 :\n"); //demandes a l'utilisateur de rentrer le prenom du joueur
         scanf("%s", prenomjoueur2); //recuperation du prenom du joueur dans le tableau
+        getchar();
+        printf("Joueur 2, choisissez votre pion en entrant un unique caractere :\n");
+        scanf("%c", av2);
+        getchar();
     }
     if (*nombrejoueur >= 4) { // test pour savoir si il ya plus de deux joueurs
         printf("Entrez le prenom du joueur 3 :\n"); //demandes a l'utilisateur de rentrer le prenom du joueur
         scanf("%s", prenomjoueur3); //recuperation du prenom du joueur dans le tableau
+        getchar();
+        printf("Joueur 3, choisissez votre pion en entrant un unique caractere :\n");
+        scanf("%c", av3);
+        getchar();
         printf("Entrez le prenom du joueur 4 :\n"); //demandes a l'utilisateur de rentrer le prenom du joueur
         scanf("%s", prenomjoueur4); //recuperation du prenom du joueur dans le tableau
+        getchar();
+        printf("Joueur 4, choisissez votre pion en entrant un unique caractere :\n");
+        scanf("%c", av4);
+        getchar();
     }
 }
 
 //creation du sous programme creant le plateau
-void creationplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], int nombrejoueur, coordonnees *pion1, coordonnees *pion2, coordonnees *pion3, coordonnees *pion4) {
+void creationplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], int nombrejoueur, coordonnees *pion1, coordonnees *pion2, coordonnees *pion3, coordonnees *pion4, char av1, char av2, char av3, char av4) {
   /*creation du plateau de 9x9*/
 
   int h;    //a=case_horizontale, k=case_verticale,
@@ -95,26 +111,26 @@ void creationplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
   }
   if (nombrejoueur >= 2) {//test pour savoir le nombre de joueur dans la partie
         plateau[0][24]=' ';
-        plateau[0][25]='1';
+        plateau[0][25]=av1;
         plateau[0][26]=' ';
         pion1->ligne=1;
         pion1->colonne='I';
 
         plateau[16][24]=' ';
-        plateau[16][25]='2';
+        plateau[16][25]=av2;
         plateau[16][26]=' ';
         pion2->ligne=17;
         pion2->colonne='I';
     }
     if (nombrejoueur >= 4) {
         plateau[8][0]=' ';
-        plateau[8][1]='3';
+        plateau[8][1]=av3;
         plateau[8][2]=' ';
         pion3->ligne=9;
         pion3->colonne='A';
         
         plateau[8][48]=' ';
-        plateau[8][49]='4';
+        plateau[8][49]=av4;
         plateau[8][50]=' ';
         pion4->ligne=9;
         pion4->colonne='Q';
