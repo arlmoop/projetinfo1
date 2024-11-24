@@ -57,12 +57,22 @@ void pose2(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], int m
     coordonnees_b1 = pose_barriere(plateau, mouvement_barriere, coordonnees_b);
     coordonnees_b2 = pose_barriere(plateau, mouvement_barriere, coordonnees_b);
 
+
+
     ligne_diff = coordonnees_b1.ligne - coordonnees_b2.ligne;
     colonne_diff = coordonnees_b1.colonne - coordonnees_b2.colonne;
 
+    if ((colonne_diff != 0 && colonne_diff != -2 && colonne_diff != 2) || (ligne_diff != 0 && ligne_diff != 2 && ligne_diff != -2)){
+      erreur++;
+      plateau[coordonnees_b1.ligne-1][(coordonnees_b1.colonne-'A')*3+1] = ' ';
+      plateau[coordonnees_b2.ligne-1][(coordonnees_b2.colonne-'A')*3+1] = ' ';
+      printf("2");
+    }
     if ((ligne_diff != 0 && ligne_diff != 2 && ligne_diff != -2) || (colonne_diff != 0 && colonne_diff != 2 && colonne_diff != -2)){
       erreur++;
-      plateau[coordonnees_b1.ligne][coordonnees_b1.colonne] = ' ';
+      plateau[coordonnees_b1.ligne-1][(coordonnees_b1.colonne-'A')*3+1] = ' ';
+      plateau[coordonnees_b2.ligne-1][(coordonnees_b2.colonne-'A')*3+1] = ' ';
+      printf("1");
     }
 
     if (coordonnees_b1.colonne==coordonnees_b2.colonne) {
@@ -92,6 +102,12 @@ void pose2(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], int m
           printf("croisement de barriere\n");
         }
       }
+    }
+    if (erreur>0) {
+      coordonnees_b1.ligne='\0';
+      coordonnees_b2.ligne='\0';
+      coordonnees_b1.colonne='\0';
+      coordonnees_b2.colonne='\0';
     }
 
   } while (erreur>0);
