@@ -17,6 +17,7 @@ coordonnees pose_barriere (char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHOR
         printf("Choisissez les coordonnees de l'emplacement de la barriere :");
         fflush(stdin);
         scanf("%c%d", &coordonnees_b.colonne, &coordonnees_b.ligne);
+        coordonnees_b.colonne=toupper(coordonnees_b.colonne);
         if (coordonnees_b.colonne<'A' || coordonnees_b.colonne>'Z' || coordonnees_b.ligne<1 || coordonnees_b.ligne>17) {
           printf("ERREUR : Veuillez saisir une coordonnee possible");
         }
