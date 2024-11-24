@@ -47,16 +47,18 @@ void pose2(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], coord
 		printf("\nBarriere 2 :");
 		coordonnees_b2=pose_barriere(plateau, coordonnees_b);//recuperation des valeurs des coordonnées 
 
-
+	//Blindage barrieres non alignees
         if((coordonnees_b1.ligne!=coordonnees_b2.ligne) && (coordonnees_b1.colonne!=coordonnees_b2.colonne)){
             erreur++;
         }
+	//Blindage barrieres non collées ou confondues
         else { 
     		if ((coordonnees_b1.ligne == coordonnees_b2.ligne && abs(coordonnees_b1.colonne - coordonnees_b2.colonne) != 2)
     		        || (coordonnees_b1.colonne == coordonnees_b2.colonne && abs(coordonnees_b1.ligne - coordonnees_b2.ligne) != 2)) {
     			erreur++;
     			printf("\n\nErreur : Les barrieres doivent etre adjacentes et non confonues");
     		}
+			//Blindage barrieres qui se superposent
     		else {
     			if((plateau[coordonnees_b1.ligne-1][(coordonnees_b1.colonne-'A')*3+1]=='-'
     			        ||plateau[coordonnees_b1.ligne-1][(coordonnees_b1.colonne-'A')*3+1]=='|')
@@ -66,7 +68,8 @@ void pose2(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], coord
     				printf("\n\nSuperpose");
     			}
     			else {
-    			    ////////////////1111
+    			    	//Premieres coordonnees
+				//On met les barrieres horizontales si la saisie est bonne
     				if ((coordonnees_b1.ligne - 1) % 2 == 1) {
     					if ((coordonnees_b1.colonne - 'A') % 2 == 1) {
     						printf("Impossible\n");
@@ -78,6 +81,7 @@ void pose2(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], coord
     						plateau[coordonnees_b1.ligne-1][(coordonnees_b1.colonne-'A')*3+2]='-';
     					}
     				}
+				//On met les barrieres verticales si la saisie est bonne
     				else if ((coordonnees_b1.ligne - 1) % 2 == 0) {
     					if ((coordonnees_b1.colonne - 'A') % 2 == 0) {
     						printf("Impossible\n");
@@ -87,7 +91,8 @@ void pose2(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], coord
     						plateau[coordonnees_b1.ligne-1][(coordonnees_b1.colonne-'A')*3+1]='|';
     					}
     				}
-    				////////////////////2222
+    				//Deuxiemes coordonnees
+				//On met les barrieres verticales si la saisie est bonne
     				if ((coordonnees_b2.ligne - 1) % 2 == 1) {
     					if ((coordonnees_b2.colonne - 'A') % 2 == 1) {
     						printf("Impossible\n");
@@ -99,6 +104,7 @@ void pose2(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], coord
     						plateau[coordonnees_b2.ligne-1][(coordonnees_b2.colonne-'A')*3+2]='-';
     					}
     				}
+				//On met les barrieres horizontales si la saisie est bonne
     				else if ((coordonnees_b2.ligne - 1) % 2 == 0) {
     					if ((coordonnees_b2.colonne - 'A') % 2 == 0) {
     						printf("Impossible\n");
