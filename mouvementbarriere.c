@@ -103,12 +103,6 @@ void pose2(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], int m
         }
       }
     }
-    if (erreur>0) {
-      coordonnees_b1.ligne='\0';
-      coordonnees_b2.ligne='\0';
-      coordonnees_b1.colonne='\0';
-      coordonnees_b2.colonne='\0';
-    }
 
   } while (erreur>0);
 }
