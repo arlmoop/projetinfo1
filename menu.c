@@ -44,7 +44,7 @@ void menudepart (char prenomjoueur1[], char prenomjoueur2[], char prenomjoueur3[
 }
 
 //creation du sous programme creant le plateau
-void creationplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], int nombrejoueur) {
+void creationplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], int nombrejoueur, coordonnees *pion1, coordonnees *pion2, coordonnees *pion3, coordonnees *pion4) {
   /*creation du plateau de 9x9*/
 
   int h;    //a=case_horizontale, k=case_verticale,
@@ -94,22 +94,31 @@ void creationplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
     plateau[v][h]=' ';
   }
   if (nombrejoueur >= 2) {//test pour savoir le nombre de joueur dans la partie
-    plateau[0][24]=' ';//placement du joueurs n°1
-    plateau[0][25]='1';
-    plateau[0][26]=' ';
+        plateau[0][24]=' ';
+        plateau[0][25]='1';
+        plateau[0][26]=' ';
+        pion1->ligne=1;
+        pion1->colonne='I';
 
-    plateau[16][24]=' ';//placement du joueurs n°2
-    plateau[16][25]='2';
-    plateau[16][26]=' ';
-  }
-  if (nombrejoueur >= 4) {//test pour savoir le nombre de joueur dans la partie
-    plateau[8][0]=' ';//placement du joueurs n°3
-    plateau[8][1]='3';
-    plateau[8][2]=' ';
-    plateau[8][48]=' ';//placement du joueurs n°4
-    plateau[8][49]='4';
-    plateau[8][50]=' ';
-  }
+        plateau[16][24]=' ';
+        plateau[16][25]='2';
+        plateau[16][26]=' ';
+        pion2->ligne=17;
+        pion2->colonne='I';
+    }
+    if (nombrejoueur >= 4) {
+        plateau[8][0]=' ';
+        plateau[8][1]='3';
+        plateau[8][2]=' ';
+        pion3->ligne=9;
+        pion3->colonne='A';
+        
+        plateau[8][48]=' ';
+        plateau[8][49]='4';
+        plateau[8][50]=' ';
+        pion4->ligne=9;
+        pion4->colonne='Q';
+    }
 }
 // sous programme affichant le tablea
 void affichageplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], char prenomjoueur1[], char prenomjoueur2[],
