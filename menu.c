@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+
 #define TAILLEPLATEAUHORIZONTALE 51
 #define TAILLEPLATEAUVERTICALE 17
 #include "header.h"
@@ -151,38 +152,55 @@ void creationplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
 }
 // sous programme affichant le tablea
 void affichageplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], char prenomjoueur1[], char prenomjoueur2[],
-    char prenomjoueur3[], char prenomjoueur4[], int *nombrejoueur) {
+    char prenomjoueur3[], char prenomjoueur4[], int *nombrejoueur, int tourjoueur, char avatar[4], int reste1, int reste2, int reste3, int reste4) {
 
-  printf ("\n     A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q\n");//les coordonnées des cases du plateau
-  printf("    ___________________________________________________\n");//les delimitations du plateau
+    printf ("\n     A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q\n"); // les coordonnées des cases du plateau
+    printf("    ___________________________________________________\n"); // les délimitations du plateau
 
-  for (int e=0; e<TAILLEPLATEAUVERTICALE; e++) {
-    if(e<9) {
-      printf(" %d |", e+1);
+    for (int e = 0; e < TAILLEPLATEAUVERTICALE; e++) {
+        if (e < 9) {
+            printf(" %d |", e + 1);
+        } else {
+            printf("%d |", e + 1);
+        }
+        for (int f = 0; f < TAILLEPLATEAUHORIZONTALE; f++) {
+            printf("%c", plateau[e][f]);
+        }
+        printf("| %d  ", e + 1);
+        printf("\n");
     }
-    else {
-      printf("%d |", e+1);
-    }
-    for (int f=0; f<TAILLEPLATEAUHORIZONTALE; f++) {
-      printf("%c", plateau[e][f]);
 
-    }
-    printf("| %d  ", e+1);
-    if (e==1) {
-      printf("  Joueur 1 : %s", prenomjoueur1);
-    }
-    if (e==4) {
-      printf("  Joueur 2 : %s", prenomjoueur2);
-    }
-    if (e==7 && *nombrejoueur==4) {
-      printf("  Joueur 3 : %s", prenomjoueur3);
-    }
-    if (e==10 && *nombrejoueur==4) {
-      printf(" Joueur 4 : %s", prenomjoueur4);
-    }
-    printf("\n");
-  }
-
-  printf("   |___________________________________________________|\n");
-  printf("     A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q\n\n");
+    printf("   |___________________________________________________|\n");
+    printf("     A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q\n\n");
+/*
+    if (tourjoueur == 1) {
+        printf("\n  Joueur 1 : %s", prenomjoueur1);
+        printf("\n  Caractere : %s", avatar[0]);
+        printf("\n  Barriere :");
+        for (int i = 0; i < reste1; i++) {
+            printf(" |");
+        }
+    } else if (tourjoueur == 2) {
+        printf("\n  Joueur 2 : %s", prenomjoueur2);
+        printf("\n  Caractere : %c", avatar[1]);
+        printf("\n  Barriere :");
+        for (int i = 0; i < reste2; i++) {
+            printf(" |");
+        }
+    } else if (tourjoueur == 3) {
+        printf("\n  Joueur 3 : %s", prenomjoueur3);
+        printf("\n  Caractere : %c", avatar[2]); // Correction pour avatar[2]
+        printf("\n  Barriere :");
+        for (int i = 0; i < reste3; i++) {
+            printf(" |");
+        }
+    } else if (tourjoueur == 4) {
+        printf("\n  Joueur 4 : %s", prenomjoueur4);
+        printf("\n  Caractere : %c", avatar[3]);
+        printf("\n  Barriere :");
+        for (int i = 0; i < reste4; i++) {
+            printf(" |");
+        }
+    }*/
 }
+

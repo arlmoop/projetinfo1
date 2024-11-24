@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#define TAILLEPLATEAUHORIZONTALE 51
-#define TAILLEPLATEAUVERTICALE 17
 #include "header.h"
 #include "menu.h"
 #include "mouvementbarriere.h"
 #include "mouvementpoins.h"
+#define TAILLEPLATEAUHORIZONTALE 51
+#define TAILLEPLATEAUVERTICALE 17
 
 int main() {
 
@@ -15,10 +15,11 @@ int main() {
     char prenomjoueur1[20], prenomjoueur2[20], prenomjoueur3[20], prenomjoueur4[20];
     int nombrejoueur;
     char avatar[4];
-    int mouvement_barriere, tourjoueur ;
+    int mouvement_barriere, tourjoueur=0;
     char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE];
     coordonnees coordonnees_b, coordonnees_b1, coordonnees_b2, pion, pion1, pion2, pion3, pion4;
-    int reste1, reste2, reste3, reste4;
+    int reste1=0, reste2=0, reste3=0, reste4=0;
+
 
     //execution de la fonction qui affiche le menu
     menudepart(prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur, avatar);
@@ -67,25 +68,10 @@ int main() {
         }
     }
 
-    affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
+    affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur, avatar,
+        tourjoueur, reste1, reste2, reste3, reste4);
 
     do{//infini pr l'instant
-        if(tourjoueur==1){
-            printf("\nAu tour de %s\n", prenomjoueur1);
-            printf("Il vous reste %d barrieres\n", reste1);
-        }
-        else if(tourjoueur==2){
-            printf("\nAu tour de %s\n", prenomjoueur2);
-            printf("Il vous reste %d barrieres\n", reste2);
-        }
-        else if(tourjoueur==3){
-            printf("\nAu tour de %s\n", prenomjoueur3);
-            printf("Il vous reste %d barrieres\n", reste3);
-        }
-        else if(tourjoueur==4){
-            printf("\nAu tour de %s\n", prenomjoueur4);
-            printf("Il vous reste %d barrieres\n", reste4);
-        }
         do {
             printf("\n1. Deplacer le pion\n2. Poser une barriere\n3. Passer votre tour\nChoisissez une valeur valide :");
             scanf("%d", &mouvement_barriere);
@@ -97,7 +83,7 @@ int main() {
             pion.ligne = 0;
             pion.colonne = 0;
             deplacementpion(plateau, pion, avatar, tourjoueur);
-            affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
+            affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur, reste1, reste2, reste3, reste4, tourjoueur, avatar);
         }
         else if (mouvement_barriere==2) {
             coordonnees_b.ligne = 0;
@@ -115,7 +101,7 @@ int main() {
             else if(tourjoueur==4){
                 reste4--;
             }
-            affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
+            affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur, reste1, reste2, reste3, reste4, tourjoueur, avatar);
         }
         tourjoueur++;
         if (tourjoueur>nombrejoueur) {

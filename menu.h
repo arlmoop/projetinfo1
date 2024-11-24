@@ -17,6 +17,6 @@ void creationplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
     coordonnees *pion3, coordonnees *pion4, char avatar[4]);
 
 void affichageplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], char prenomjoueur1[], char prenomjoueur2[],
-    char prenomjoueur3[], char prenomjoueur4[], int *nombrejoueur);
+    char prenomjoueur3[], char prenomjoueur4[], int *nombrejoueur, int tourjoueur, char avatar[4], int reste1, int reste2, int reste3, int reste4);
 
 #endif //MENU_H
