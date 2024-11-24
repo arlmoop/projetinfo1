@@ -13,6 +13,4 @@ typedef struct {
     char colonne;
 }joueur;
 
-void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], joueur pion);
-
 #endif //MOUVEMENTPOINS_H

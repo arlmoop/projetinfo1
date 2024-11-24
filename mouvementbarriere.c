@@ -2,11 +2,12 @@
 #include <stdlib.h>
 #define TAILLEPLATEAUHORIZONTALE 51
 #define TAILLEPLATEAUVERTICALE 17
+#include "header.h"
+#include "mouvementbarriere.h"
+#include "mouvementpoins.h"
+#include "menu.h"
 
-typedef struct {
-  int ligne;
-  char colonne;
-}coordonnees;
+
 // Fonction pour vérifier si la case est valide et si elle est vide
 
 coordonnees pose_barriere (char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], int mouvement_barriere, coordonnees coordonnees_b) {

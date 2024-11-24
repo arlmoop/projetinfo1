@@ -14,15 +14,15 @@ int main() {
     //creation des variables pour le prenom des joueurs
     char prenomjoueur1[20], prenomjoueur2[20], prenomjoueur3[20], prenomjoueur4[20];
     int nombrejoueur;
-    char av1, av2, av3, av4;
+    char avatar[4];
     int mouvement_barriere, tourjoueur ;
     char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE];
     coordonnees coordonnees_b, coordonnees_b1, coordonnees_b2, pion, pion1, pion2, pion3, pion4;
     int reste1, reste2, reste3, reste4;
 
     //execution de la fonction qui affiche le menu
-    menudepart(prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur, &av1, &av2, &av3, &av4);
-    
+    menudepart(prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur, avatar);
+
     if(nombrejoueur==2){
         reste1=10;
         reste2=10;
@@ -33,7 +33,7 @@ int main() {
         reste3=5;
         reste4=5;
     }
-    
+
     if(nombrejoueur==2){
         tourjoueur=1+rand()%2;
     }
@@ -41,7 +41,7 @@ int main() {
         tourjoueur=1+rand()%4;
     }
 
-    creationplateau(plateau, nombrejoueur, &pion1, &pion2, &pion3, &pion4, av1, av2, av3, av4);
+    creationplateau(plateau, nombrejoueur, &pion1, &pion2, &pion3, &pion4, avatar);
     //pr verifier si c les bonnes coordonnees
     if(nombrejoueur>=2){
         printf("\nCoordoonnees :\n");
@@ -56,31 +56,31 @@ int main() {
             printf(" %d\n", pion4.ligne);
         }
     }
-    
+
     if(nombrejoueur>=2){
         printf("\nPions :\n");
-        printf("1 : %c\n", av1);
-        printf("2 : %c\n", av2);
+        printf("1 : %c\n", avatar[0]);
+        printf("2 : %c\n", avatar[1]);
         if(nombrejoueur==4){
-            printf("3 : %c\n", av3);
-            printf("4 : %c\n", av4);
+            printf("3 : %c\n", avatar[2]);
+            printf("4 : %c\n", avatar[3]);
         }
     }
-    
+
     affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
 
     do{//infini pr l'instant
         if(tourjoueur==1){
             printf("\nAu tour de %s\n", prenomjoueur1);
-            printf("Il vous reste %d barrieres\n", reste1); 
+            printf("Il vous reste %d barrieres\n", reste1);
         }
         else if(tourjoueur==2){
             printf("\nAu tour de %s\n", prenomjoueur2);
-            printf("Il vous reste %d barrieres\n", reste2); 
+            printf("Il vous reste %d barrieres\n", reste2);
         }
         else if(tourjoueur==3){
             printf("\nAu tour de %s\n", prenomjoueur3);
-            printf("Il vous reste %d barrieres\n", reste3); 
+            printf("Il vous reste %d barrieres\n", reste3);
         }
         else if(tourjoueur==4){
             printf("\nAu tour de %s\n", prenomjoueur4);
@@ -96,7 +96,7 @@ int main() {
         if (mouvement_barriere==1) {
             pion.ligne = 0;
             pion.colonne = 0;
-            deplacementpion(plateau, pion);
+            deplacementpion(plateau, pion, avatar, tourjoueur);
             affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur);
         }
         else if (mouvement_barriere==2) {
