@@ -51,7 +51,7 @@ void pose2(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], coord
         if((coordonnees_b1.ligne!=coordonnees_b2.ligne) && (coordonnees_b1.colonne!=coordonnees_b2.colonne)){
             erreur++;
         }
-        else {
+        else { 
     		if ((coordonnees_b1.ligne == coordonnees_b2.ligne && abs(coordonnees_b1.colonne - coordonnees_b2.colonne) != 2)
     		        || (coordonnees_b1.colonne == coordonnees_b2.colonne && abs(coordonnees_b1.ligne - coordonnees_b2.ligne) != 2)) {
     			erreur++;
