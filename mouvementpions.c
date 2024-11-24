@@ -17,10 +17,6 @@ void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
     errmouv=0;
     printf("Saisissez une dirction valide :\n1 gauche 2 droite 3 haut 4 bas\n");
     scanf("%d", &mouvement);
-    //pion puis barriere
-    errmouv=0;
-
-    ///////////////////////////////////////////////////
 
   for (int i=0; i < TAILLEPLATEAUVERTICALE; i++) {
     for (int j=0; j < TAILLEPLATEAUHORIZONTALE; j++) {
@@ -92,9 +88,6 @@ void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
     ////////////////////////////////////////////
   } while (mouvement <1 || mouvement>4 || errmouv>0);
     ///////////////////////////////////////////
-    ///
-
-
 
   if(pionchemin==0) {
     if(mouvement==1) {
