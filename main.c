@@ -69,28 +69,29 @@ int main() {
             printf("4 : %c\n", avatar[3]);
         }
     }
-
+    //On connait toutes les infos donc on peut afficher le plateau
     affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur, avatar,
         tourjoueur, reste1, reste2, reste3, reste4);
-
-    do{//infini pr l'instant
+    //Condition de victoire
+    do{
+        //Saisie valide
         do {
             printf("\n1. Deplacer le pion\n2. Poser une barriere\n3. Passer votre tour\nChoisissez une valeur valide :");
             scanf("%d", &mouvement_barriere);
-            if (mouvement_barriere<'1'&&mouvement_barriere>'3') {
-                tourjoueur--;
-            }
         } while (mouvement_barriere!=1 && mouvement_barriere!=2 && mouvement_barriere!=3);
+        //Le joueur a choisi de se deplacer
         if (mouvement_barriere==1) {
             pion.ligne = 0;
             pion.colonne = 0;
             deplacementpion(plateau, pion, avatar, tourjoueur);
-            affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur, reste1, reste2, reste3, reste4, tourjoueur, avatar);
         }
+        //Le joueur a choisi de poser une barriere
         else if (mouvement_barriere==2) {
             coordonnees_b.ligne = 0;
             coordonnees_b.colonne = 0;
+            //Pose de barriere
             pose2(plateau, mouvement_barriere, coordonnees_b);
+            //Enlever une barriere au joueur
             if(tourjoueur==1){
                 reste1--;
             }
@@ -103,12 +104,14 @@ int main() {
             else if(tourjoueur==4){
                 reste4--;
             }
-            affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur, reste1, reste2, reste3, reste4, tourjoueur, avatar);
         }
+        //Afficher la plateau apres chaque tour
+        affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur, reste1, reste2, reste3, reste4, tourjoueur, avatar);
+        //
         tourjoueur++;
         if (tourjoueur>nombrejoueur) {
             tourjoueur=1;
         }
-    }while(5);
+    }while(5);//Condtion de victoire
     return 0;
 }
