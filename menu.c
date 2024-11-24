@@ -12,7 +12,7 @@ void menudepart (char prenomjoueur1[], char prenomjoueur2[], char prenomjoueur3[
     scanf("%d", &c);
     }while(c!=1&&c!=2);
     if(c==2){
-        printf("\nLe premier joueur a commencer est tire au hasard.\nSi vous souhaitez quitter la partie, faites 99 au moment de decider d'une action\n");
+        printf("\nLe premier joueur a commencer est tire au hasard.\n");
         printf("Objectif : Vous devez atteindre la ligne opposee avec votre pion avant vos adversaires.\n");
         printf("Vous pouvez deplacer votre pion, poser des barrieres pour bloquer les autres joueurs ou passer votre tour.\n");
         printf("Si vous jouez a 2, chaque joueur a 10 barrieres a placer.\nSi vous jouez a 4, chaque joueur en a 5.\n Le jeu se termine lorsque l'un des joueurs atteint la ligne en face de sa position de depart.\n");
