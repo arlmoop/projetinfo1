@@ -10,13 +10,15 @@
 #include "mouvementpoins.h"
 #include "menu.h"
 
+//Fonction permettant de presenter le jeu et obtenir les informations necessaires au lancement de la partie
 void menudepart (char prenomjoueur1[], char prenomjoueur2[], char prenomjoueur3[], char prenomjoueur4[], int *nombrejoueur, char avatar[4]) {
-    int c;
+    int c; //Choisir de consulter l'aide ou pas
     printf("BIENVENUE DANS LE JEU DU QUORIDOR\n\n");
     do{
     printf("Commencer la partie : 1\nConsulter la page d'aides : 2\n");
     scanf("%d", &c);
     }while(c!=1&&c!=2);
+    //Aide et regles principales
     if(c==2){
         printf("\nLe premier joueur a commencer est tire au hasard.\n");
         printf("Objectif : Vous devez atteindre la ligne opposee avec votre pion avant vos adversaires.\n");
@@ -25,42 +27,39 @@ void menudepart (char prenomjoueur1[], char prenomjoueur2[], char prenomjoueur3[
     }
 
     do {
-        //Demande a l'utilisateur de choisir le nombre de joueur
         printf("\nVoulez vous jouez avec deux ou quatres joueurs ? :");
-        //recuperation du nombre de joueur dans la variable
         scanf("%d", nombrejoueur);
-
-        if (*nombrejoueur!=2 && *nombrejoueur!=4) { //test pour un message d'erreur
-            printf("\nERREUR : Vous devez choisir 2 ou 4 joueurs\n"); //message d'erreur
+        if (*nombrejoueur!=2 && *nombrejoueur!=4) {
+            printf("\nERREUR : Vous devez choisir 2 ou 4 joueurs\n");
         }
-    } while (*nombrejoueur!=2 && *nombrejoueur!=4); //blindage pour avoir un nombre de joueur possible
+    } while (*nombrejoueur!=2 && *nombrejoueur!=4);
 
-    if (*nombrejoueur >= 2) { // test pour demander au 2 joueurs leurs prenoms
-        printf("Entrez le prenom du joueur 1 :\n"); //demandes a l'utilisateur de rentrer le prenom du joueur
-        scanf("%s", prenomjoueur1);//recuperation du prenom du joueur dans le tableau
+    if (*nombrejoueur >= 2) {
+        printf("Entrez le prenom du joueur 1 :\n");
+        scanf("%s", prenomjoueur1);
         getchar();
         printf("Joueur 1, choisissez votre pion en entrant un unique caractere :\n");
         scanf("%c", &avatar[0]);
         getchar();
 
-        printf("Entrez le prenom du joueur 2 :\n"); //demandes a l'utilisateur de rentrer le prenom du joueur
-        scanf("%s", prenomjoueur2); //recuperation du prenom du joueur dans le tableau
+        printf("Entrez le prenom du joueur 2 :\n");
+        scanf("%s", prenomjoueur2);
         getchar();
         printf("Joueur 2, choisissez votre pion en entrant un unique caractere :\n");
         scanf("%c", &avatar[1]);
         getchar();
 
     }
-    if (*nombrejoueur >= 4) { // test pour savoir si il ya plus de deux joueurs
-        printf("Entrez le prenom du joueur 3 :\n"); //demandes a l'utilisateur de rentrer le prenom du joueur
-        scanf("%s", prenomjoueur3); //recuperation du prenom du joueur dans le tableau
+    if (*nombrejoueur >= 4) {
+        printf("Entrez le prenom du joueur 3 :\n");
+        scanf("%s", prenomjoueur3);
         getchar();
         printf("Joueur 3, choisissez votre pion en entrant un unique caractere :\n");
         scanf(" %c", &avatar[2]);
         getchar();
 
-        printf("Entrez le prenom du joueur 4 :\n"); //demandes a l'utilisateur de rentrer le prenom du joueur
-        scanf("%s", prenomjoueur4); //recuperation du prenom du joueur dans le tableau
+        printf("Entrez le prenom du joueur 4 :\n");
+        scanf("%s", prenomjoueur4);
         getchar();
         printf("Joueur 4, choisissez votre pion en entrant un unique caractere :\n");
         scanf(" %c", &avatar[3]);
@@ -69,23 +68,24 @@ void menudepart (char prenomjoueur1[], char prenomjoueur2[], char prenomjoueur3[
     }
 }
 
-//creation du sous programme creant le plateau
+//Creation du plateau et remplissage des cases
 void creationplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], int nombrejoueur, coordonnees *pion1, coordonnees *pion2,
   coordonnees *pion3, coordonnees *pion4, char avatar[4]) {
-  /*creation du plateau de 9x9*/
-  int tourjoueurr=0;
-  char caracterejoueur;
-
-  int h;    //a=case_horizontale, k=case_verticale,
+    
+  int h;
+    //v compte les cases verticales et h horizontales
   for(int v=0; v<17; v++){
     h=0;
+      //Chaque case etant composées de 3 caracteres, on initialise 51 cases par ligne et 17 cases par colonne
     for (int i=0; i<8 ;i++) {
+        //Case 1, là ou les joueurs se deplacent
       plateau[v][h]=' ';
       h++;
       plateau[v][h]='.';
       h++;
       plateau[v][h]=' ';
       h++;
+        //case 2, pour les barrieres verticales
       plateau[v][h]=' ';
       h++;
       plateau[v][h]=' ';
@@ -93,6 +93,7 @@ void creationplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
       plateau[v][h]=' ';
       h++;
     }
+      //case 1 pour finir la ligne
     plateau[v][h]=' ';
     h++;
     plateau[v][h]='.';
@@ -102,13 +103,16 @@ void creationplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
 
   for(int v=1; v<16; v+=2) {
     h=0;
+      //Meme chose qu'au dessus ma ceci represente les lignes où le joueur ne se deplace pas
     for (int j=0; j<8 ;j++) {
+        //Case 1 pour les barrieres horizontales
       plateau[v][h]=' ';
       h++;
       plateau[v][h]=' ';
       h++;
       plateau[v][h]=' ';
       h++;
+        //Case 2 pour les coins de cases
       plateau[v][h]=' ';
       h++;
       plateau[v][h]='+';
@@ -122,10 +126,9 @@ void creationplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
     h++;
     plateau[v][h]=' ';
   }
-  if (nombrejoueur >= 2) {//test pour savoir le nombre de joueur dans la partie
-
+  if (nombrejoueur >= 2) {
         plateau[0][24]=' ';
-        plateau[0][25]=avatar[0];
+        plateau[0][25]=avatar[0];//on place le joueur 1 en bas du tableau
         plateau[0][26]=' ';
         pion1->ligne=1;
         pion1->colonne='I';
@@ -150,23 +153,23 @@ void creationplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
         pion4->colonne='Q';
     }
 }
-// sous programme affichant le tablea
+// sous programme affichant le tableau
 void affichageplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], char prenomjoueur1[], char prenomjoueur2[],
     char prenomjoueur3[], char prenomjoueur4[], int *nombrejoueur, int tourjoueur, char avatar[4], int reste1, int reste2, int reste3, int reste4) {
 
-    printf ("\n     A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q\n"); // les coordonnées des cases du plateau
+    printf ("\n     A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q\n"); // les coordonnées des coonnes du plateau
     printf("    ___________________________________________________\n"); // les délimitations du plateau
 
-    for (int e = 0; e < TAILLEPLATEAUVERTICALE; e++) {
-        if (e < 9) {
-            printf(" %d |", e + 1);
+    for (int e=0; e<TAILLEPLATEAUVERTICALE; e++) {
+        if (e<9) {
+            printf(" %d |", e+1);
         } else {
-            printf("%d |", e + 1);
+            printf("%d |", e+1);//coordonnees des lignes
         }
-        for (int f = 0; f < TAILLEPLATEAUHORIZONTALE; f++) {
+        for (int f=0; f<TAILLEPLATEAUHORIZONTALE; f++) {
             printf("%c", plateau[e][f]);
         }
-        printf("| %d  ", e + 1);
+        printf("| %d  ", e+1);
         printf("\n");
     }
 
