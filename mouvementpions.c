@@ -6,13 +6,19 @@
 #include "mouvementbarriere.h"
 #include "mouvementpoins.h"
 #include "menu.h"
+//Mouvement du pion
 void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], coordonnees pion, char avatar[4], int tourjoueur) {
-    //faut definir les coordonnees de depart
+    //Compte les erreurs
     int errmouv;
+    //Stocke la direction du mouvement
     int mouvement;
+    //Y a-t-il un pion sur la trajectoire du joueur
     int pionchemin;
-    int bifurquer;
+    //Y a-t-il une barriere derriere le pion au sauter
     int barchemin;
+    //S'il y a un pion et une barriere, choisir dans quel sens bifurquer
+    int bifurquer;
+    
     do {
         pionchemin = 0;
         barchemin = 0;
