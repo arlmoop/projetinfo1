@@ -97,11 +97,12 @@ void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
 
         //Sortie du plateau
         if (pion.colonne=='A' && mouvement==1 || pion.colonne=='Q' && mouvement==2 || pion.ligne==1 &&
-            mouvement==3 || pion.ligne==17 && mouvement==4) {
+            mouvement==3 || pion.ligne==17 && mouvement==4) {//detection que le pion se trouve dans une case ou le mouvement choisi est possible 
             errmouv++;//creation d'une erreur
             }
 
         //Barrière qui bloque
+        //blindage qui detectent les mouvements des pions qui vont sur des barrieres 
         if (mouvement == 1 && plateau[pion.ligne-1][(pion.colonne-'A')*3+1-3]=='|') {
             errmouv++;//creation d'une erreur
         }
@@ -116,6 +117,7 @@ void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
         }
         //Blindage saisie et erreur de mouvement
     } while (mouvement<1 || mouvement>4 || errmouv>0);
+    
     //Si la case est libre
     if (pion_chemin == 0) {
         //Gauche
@@ -142,68 +144,68 @@ void deplacementpion(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTA
             plateau[pion.ligne-1+2][(pion.colonne-'A')*3+1] = avatar[tourjoueur-1];
             plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';
         }
-        //Si un pion est sur le chemin
+        //Si un pion est sur le chemin (alors d'après le cahier des charges il doit sauter par-dessus
     } else {
-        //Si il n'y a pas de barriere apres ce pion
+        //Si il n'y a pas de barriere apres ce pion, le deplacement est possible
         if (barriere_chemin==0) {
             //Deplacement du joueur de 2 cases (gauche et droite->12 caracteres, haut et bas-> 4 caractères)
             if (mouvement==1) {
-                plateau[pion.ligne-1][(pion.colonne-'A')*3+1-12] = avatar[tourjoueur-1];
-                plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';
+                plateau[pion.ligne-1][(pion.colonne-'A')*3+1-12] = avatar[tourjoueur-1];//deplacement du pion dans sa nouvelle case
+                plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';//reconstruction du plateau apres le depart du pion
             }
             if (mouvement == 2) {
-                plateau[pion.ligne-1][(pion.colonne-'A')*3+1+12] = avatar[tourjoueur-1];
-                plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';
+                plateau[pion.ligne-1][(pion.colonne-'A')*3+1+12] = avatar[tourjoueur-1];//deplacement du pion dans sa nouvelle case
+                plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';//reconstruction du plateau apres le depart du pion
             }
             if (mouvement == 3) {
-                plateau[pion.ligne-1-4][(pion.colonne-'A')*3+1] = avatar[tourjoueur-1];
-                plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';
+                plateau[pion.ligne-1-4][(pion.colonne-'A')*3+1] = avatar[tourjoueur-1];//deplacement du pion dans sa nouvelle case
+                plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';//reconstruction du plateau apres le depart du pion
             }
             if (mouvement == 4) {
-                plateau[pion.ligne-1+4][(pion.colonne-'A')*3+1] = avatar[tourjoueur-1];
-                plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';
+                plateau[pion.ligne-1+4][(pion.colonne-'A')*3+1] = avatar[tourjoueur-1];//deplacement du pion dans sa nouvelle case
+                plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';//reconstruction du plateau apres le depart du pion
             }
             //S'il y a une barriere apres ce pion
         } else {
-            //En fonction de la direction de la bifurcation, le pion est deplacé d'une ligne et d'une colonne
+            //En fonction de la direction de la bifurcation, le pion est deplacé d'une ligne et d'une colonne (choix de l'utilisateur de la direction a prendre
             if (mouvement == 1) {
                 if (bifurquer == 3) {
-                    plateau[pion.ligne-1-2][(pion.colonne-'A')*3+1-6] = avatar[tourjoueur-1];
-                    plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';
+                    plateau[pion.ligne-1-2][(pion.colonne-'A')*3+1-6] = avatar[tourjoueur-1];//deplacement du pion dans sa nouvelle case
+                    plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';//reconstruction du plateau apres le depart du pion
                 }
                 if (bifurquer == 4) {
-                    plateau[pion.ligne-1+2][(pion.colonne-'A')*3+1-6] = avatar[tourjoueur-1];
-                    plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';
+                    plateau[pion.ligne-1+2][(pion.colonne-'A')*3+1-6] = avatar[tourjoueur-1];//deplacement du pion dans sa nouvelle case
+                    plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';//reconstruction du plateau apres le depart du pion
                 }
             }
             if (mouvement == 2) {
                 if (bifurquer == 3) {
-                    plateau[pion.ligne-1-2][(pion.colonne-'A')*3+1+6] = avatar[tourjoueur-1];
-                    plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';
+                    plateau[pion.ligne-1-2][(pion.colonne-'A')*3+1+6] = avatar[tourjoueur-1];//deplacement du pion dans sa nouvelle case
+                    plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';//reconstruction du plateau apres le depart du pion
                 }
                 if (bifurquer == 4) {
-                    plateau[pion.ligne-1+2][(pion.colonne-'A')*3+1+6] = avatar[tourjoueur-1];
-                    plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';
+                    plateau[pion.ligne-1+2][(pion.colonne-'A')*3+1+6] = avatar[tourjoueur-1];//deplacement du pion dans sa nouvelle case
+                    plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';//reconstruction du plateau apres le depart du pion
                 }
             }
             if (mouvement == 3) {
                 if (bifurquer == 1) {
-                    plateau[pion.ligne-1-2][(pion.colonne-'A')*3+1-6] = avatar[tourjoueur-1];
-                    plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';
+                    plateau[pion.ligne-1-2][(pion.colonne-'A')*3+1-6] = avatar[tourjoueur-1];//deplacement du pion dans sa nouvelle case
+                    plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';//reconstruction du plateau apres le depart du pion
                 }
                 if (bifurquer == 2) {
-                    plateau[pion.ligne-1-2][(pion.colonne-'A')*3+1+6] = avatar[tourjoueur-1];
-                    plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';
+                    plateau[pion.ligne-1-2][(pion.colonne-'A')*3+1+6] = avatar[tourjoueur-1];//deplacement du pion dans sa nouvelle case
+                    plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';//reconstruction du plateau apres le depart du pion
                 }
             }
             if (mouvement == 4) {
                 if (bifurquer == 1) {
-                    plateau[pion.ligne-1+2][(pion.colonne-'A')*3+1-6] = avatar[tourjoueur-1];
-                    plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';
+                    plateau[pion.ligne-1+2][(pion.colonne-'A')*3+1-6] = avatar[tourjoueur-1];//deplacement du pion dans sa nouvelle case
+                    plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';//reconstruction du plateau apres le depart du pion
                 }
                 if (bifurquer == 2) {
-                    plateau[pion.ligne-1+2][(pion.colonne-'A')*3+1+6] = avatar[tourjoueur-1];
-                    plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';
+                    plateau[pion.ligne-1+2][(pion.colonne-'A')*3+1+6] = avatar[tourjoueur-1];//deplacement du pion dans sa nouvelle case
+                    plateau[pion.ligne-1][(pion.colonne-'A')*3+1] = '.';//reconstruction du plateau apres le depart du pion
                 }
             }
         }
