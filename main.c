@@ -107,8 +107,9 @@ int main() {
         }
         //Afficher la plateau apres chaque tour
         affichageplateau(plateau, prenomjoueur1, prenomjoueur2, prenomjoueur3, prenomjoueur4, &nombrejoueur, reste1, reste2, reste3, reste4, tourjoueur, avatar);
-        //
+        //Passer au joueur suivant
         tourjoueur++;
+        //Revenir au joueur 1 quand on atteint le dernier joueur
         if (tourjoueur>nombrejoueur) {
             tourjoueur=1;
         }
