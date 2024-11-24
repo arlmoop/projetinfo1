@@ -202,5 +202,6 @@ void affichageplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONT
             printf(" |");
         }
     }*/
+    //
 }
 
