@@ -73,35 +73,42 @@ void pose2(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONTALE], int m
             plateau[coordonnees_b2.ligne - 1][(coordonnees_b2.colonne - 'A') * 3 + 2] = ' ';
         }
 
-
-                                       /*if (coordonnees_b1.colonne==coordonnees_b2.colonne) {
-                                                       if (coordonnees_b2.ligne>coordonnees_b1.ligne) {
-                                                                       if (plateau[coordonnees_b1.ligne+1][coordonnees_b1.colonne+2]=='-') {
-                                                                                       erreur++;
-                                                                                       printf("croisement de barriere\n");
-                                                                       }
-                                                       }
-                                                       if (coordonnees_b1.ligne>coordonnees_b2.ligne) {
-                                                                       if (plateau[coordonnees_b1.ligne+1][coordonnees_b1.colonne-2]=='-') {
-                                                                                       erreur++;
-                                                                                       printf("croisement de barriere\n");
-                                                                       }
-                                                       }
-                                       }
-                                       if (coordonnees_b1.ligne==coordonnees_b2.ligne) {
-                                                       if (coordonnees_b2.colonne>coordonnees_b1.colonne) {
-                                                                       if (plateau[coordonnees_b1.colonne+3][coordonnees_b1.colonne+1]=='|') {
-                                                                                       erreur++;
-                                                                                       printf("croisement de barriere\n");
-                                                                       }
-                                                       }
-                                                       if (coordonnees_b1.colonne>coordonnees_b2.colonne) {
-                                                                       if (plateau[coordonnees_b1.colonne+3][coordonnees_b1.colonne-1]=='|') {
-                                                                                       erreur++;
-                                                                                       printf("croisement de barriere\n");
-                                                                       }
-                                                       }
-                                       }*/
+        if ((coordonnees_b1.colonne-'A')*3+1==(coordonnees_b2.colonne-'A')*3+1) {
+            if (coordonnees_b2.ligne-1>coordonnees_b1.ligne-1) {
+                if (plateau[coordonnees_b1.ligne-1+1][(coordonnees_b1.colonne-'A')*3+1+2]=='-'
+                    || plateau[coordonnees_b1.ligne-1+1][(coordonnees_b1.colonne-'A')*3+1+2]=='|') {
+                    printf("1");
+                    erreur++;
+                    printf("croisement de barriere\n");
+                }
+            }
+            if (coordonnees_b1.ligne-1>coordonnees_b2.ligne-1) {
+                if (plateau[coordonnees_b1.ligne+1][coordonnees_b1.colonne-2]=='-' ||
+                    plateau[coordonnees_b1.ligne+1][coordonnees_b1.colonne-2]=='|') {
+                    printf("2");
+                    erreur++;
+                    printf("croisement de barriere\n");
+                }
+            }
+        }
+        if (coordonnees_b1.ligne==coordonnees_b2.ligne) {
+            if ((coordonnees_b2.colonne-'A')*3+1>(coordonnees_b1.colonne-'A')*3+1) {
+                if (plateau[coordonnees_b1.ligne-1+1][(coordonnees_b1.colonne-'A')*3+1+1]=='|'
+                    || plateau[coordonnees_b1.ligne-1+1][(coordonnees_b1.colonne-'A')*3+1+1]=='-') {
+                    printf("3");
+                    erreur++;
+                    printf("croisement de barriere\n");
+                }
+            }
+            if ((coordonnees_b1.colonne-'A')*3+1>(coordonnees_b2.colonne-'A')*3+1) {
+                if (plateau[coordonnees_b1.ligne-1+1][(coordonnees_b1.colonne-'A')*3+1-1]=='|'
+                    || plateau[coordonnees_b1.ligne-1+1][(coordonnees_b1.colonne-'A')*3+1-1]=='-') {
+                    erreur++;
+                    printf("4");
+                    printf("croisement de barriere\n");
+                }
+            }
+        }
 
     } while (erreur > 0);
 }

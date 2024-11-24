@@ -75,6 +75,7 @@ int main() {
     //Condition de victoire
     do{
         //Saisie valide
+
         do {
             printf("\n1. Deplacer le pion\n2. Poser une barriere\n3. Passer votre tour\nChoisissez une valeur valide :");
             scanf("%d", &mouvement_barriere);
@@ -113,6 +114,7 @@ int main() {
         if (tourjoueur>nombrejoueur) {
             tourjoueur=1;
         }
+
 
     }while(victoire<=0);//Condtion de victoire
     printf("LE JOUEUR %d A GAGNE LA PARTIE", tourjoueur);

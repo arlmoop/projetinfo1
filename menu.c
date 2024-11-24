@@ -176,6 +176,8 @@ void affichageplateau(char plateau[TAILLEPLATEAUVERTICALE][TAILLEPLATEAUHORIZONT
     printf("   |___________________________________________________|\n");
     printf("     A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q\n\n");
 
+
+
     if (nombre_tour == 1) {
         printf("\n  Joueur 1 : %s", prenomjoueur1);
     } else if (nombre_tour == 2) {
